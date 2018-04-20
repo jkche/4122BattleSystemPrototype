@@ -9,7 +9,7 @@ void drawPiMenu(sf::CircleShape &, sf::Vector2f);
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(512,512), "SFML Tutorial", sf::Style::Close | sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(1920,1080), "SFML Tutorial", sf::Style::Close | sf::Style::Resize);
 
     //Disable key repeat for mouse clicks
     window.setKeyRepeatEnabled(false);

@@ -5,6 +5,7 @@ set(CMAKE_CX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -IC:/Users/justi_000/Desktop/SFML/include -LC:/Users/justi_000/Desktop/SFML/lib")
 
 set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES move.cpp)
 
 #set(EXECUTABLE_NAME "SFMLDemo")
 #add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
