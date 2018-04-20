@@ -1,15 +1,16 @@
-#include <string>
-
-using namespace std;
+#include "move.h"
 
 class Move {
-	public:
+public:
+	/*
 	string name;
 	int damage;
+	int cost;
 	int cooldown;
 	int currentCooldown;
 	bool isReady;
 	bool moveUsed;
+	*/
 	Move(string movename, int dmgVal, int cdVal) {
 		name = movename;
 		damage = dmgVal;
