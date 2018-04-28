@@ -1,4 +1,5 @@
 #include "move.h"
+#include <vector>
 
 class Character {
 public:
@@ -8,7 +9,7 @@ public:
 	int maxhealth;
 	int mana;
 	int maxmana;
-	Move[] defenseMoves;
-	Move[] offenseMoves;
+	vector<Move> defenseMoves;
+	vector<Move> offenseMoves;
 	Character();
 };
