@@ -1,6 +1,5 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
-#include "move.h"
 #include "character.h"
 //#include "MoveButton.h"
 #include "MoveMenu.h"
@@ -25,16 +24,8 @@ int main()
     sf::CircleShape piMenuAttackButton(10.0f);
     sf::CircleShape enemyHighlight(30.0f);
     MoveButton testButton(400,400,sf::Color::Cyan,sf::Color::Yellow,2.0f,30.0f);
-//    std::vector<MoveButton> enemyPiMenu;
-//    for(int i = 0; i < 8; ++i)
-//    {
-//        MoveButton testButton2(i*100, 500, sf::Color::Green, sf::Color::Green,2.0f,20.0f);
-//        enemyPiMenu.push_back(testButton2);
-//    }
     MoveMenu enemyPiMenu(player.getPosition().x, player.getPosition().y, 80.0f);
 
-//    sf::CircleShape enemyAttackButton1 (10.0f);
-//    sf::CircleShape enemyAttackButton2 (10.0f);
 
     //Color objects
     player.setFillColor(sf::Color::Cyan);
@@ -46,8 +37,6 @@ int main()
     enemyHighlight.setFillColor(sf::Color::Transparent);
     enemyHighlight.setOutlineColor(sf::Color::Yellow);
     enemyHighlight.setOutlineThickness(2.0f);
-//    enemyAttackButton1.setFillColor(sf::Color::Yellow);
-//    enemyAttackButton2.setFillColor(sf::Color::Yellow);
 
     //Position Objects
     player.setOrigin(50.0f, 50.0f);
@@ -59,7 +48,7 @@ int main()
 
     moveButton.setPosition(312.0f,492.0f);
 
-    sf::Texture playerTexture;
+//    sf::Texture playerTexture;
 
 
 
@@ -119,49 +108,6 @@ int main()
                             window.display();
                         }
                     }
-////Old Pi Menu main circle
-//                    if(sf::Mouse::getPosition(window).x > player.getPosition().x-player.getOrigin().x
-//                       && sf::Mouse::getPosition(window).y > player.getPosition().y-player.getOrigin().y
-//                       && sf::Mouse::getPosition(window).x < player.getPosition().x-player.getOrigin().x + player.getSize().x
-//                       && sf::Mouse::getPosition(window).y < player.getPosition().y-player.getOrigin().y+ player.getSize().y) {
-//                        printf("\nPi menu opened @ player position x: %f, y: %f\n",
-//                               player.getPosition().x, player.getPosition().y);
-//                        piMenuOpen = !piMenuOpen;
-//                        if(piMenuOpen){
-//                            piMenu.setPosition(player.getPosition().x+player.getSize().x/2-piMenu.getRadius(),
-//                                               player.getPosition().y+player.getSize().y/2-piMenu.getRadius());
-//
-//                        }else
-//                            piMenu.setPosition(-100.0f,-100.0f);
-//                        piMenuAttackButton.setPosition(piMenu.getPosition().x-piMenuAttackButton.getRadius(),piMenu.getPosition().y-piMenuAttackButton.getRadius());
-//                    }
-                    ////Enemy highlight
-//                    if(isHoveringEnemy(window, sf::Mouse::getPosition(window), player.getPosition(), 100))
-//                        enemyHighlight.setPosition(player.getPosition().x - enemyHighlight.getRadius(), player.getPosition().y - enemyHighlight.getRadius());
-//                    else
-//                        enemyHighlight.setPosition(-100.0f, -100.0f);
-
-                    ////Old Pi Menu Attack Circle + Movement
-//                    if(sqrt(pow(piMenuAttackButton.getPosition().x - sf::Mouse::getPosition(window).x,2)
-//                    + pow(piMenuAttackButton.getPosition().y - sf::Mouse::getPosition(window).y,2)) < piMenuAttackButton.getRadius()
-//                        && piMenuOpen) {
-//                        for(int i = 0; i < 150; ++i){
-//                            window.clear();
-//                            //player.move(2.0f,0.0f);
-//                            if(i < 75)
-//                                player.move(2.0f,-50.0f/75);
-//                            else
-//                                player.move(2.0f,50.0f/75);
-//                            window.draw(player);
-//                            window.display();
-//                        }
-//                        for(int i = 0; i < 50; ++i){
-//                            window.clear();
-//                            player.move(-6.0f,0.0f);
-//                            window.draw(player);
-//                            window.display();
-//                        }
-//                    }
 
             }
         }
@@ -178,46 +124,6 @@ int main()
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) && player.getPosition().x <= window.getSize().x){
             player.move(0.1f, 0.0f);
         }
-//
-//        //Mouse input
-//        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-//            //Player Move by Mouse Button
-////            sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-////            player.setPosition((float)mousePos.x, (float)mousePos.y);
-//
-//            //Player move across screen by mouse button
-//            if(sf::Mouse::getPosition(window).x > 312 && sf::Mouse::getPosition(window).y > 492){
-//                printf("\nMouse position on action click -> x: %i, y: %i\n", sf::Mouse::getPosition(window).x,sf::Mouse::getPosition(window).y);
-//                for(int i = 0; i < 150; ++i){
-//                    window.clear();
-//                    //player.move(2.0f,0.0f);
-//                    if(i < 75)
-//                        player.move(2.0f,-50.0f/75);
-//                    else
-//                        player.move(2.0f,50.0f/75);
-//                    window.draw(player);
-//                    window.display();
-//                }
-//                for(int i = 0; i < 50; ++i){
-//                    window.clear();
-//                    player.move(-6.0f,0.0f);
-//                    window.draw(player);
-//                    window.display();
-//                }
-//            }
-//        }
-//
-//        if(sf::Mouse::getPosition(window).x > player.getPosition().x-player.getOrigin().x && sf::Mouse::getPosition(window).y > player.getPosition().y-player.getOrigin().y && sf::Mouse::getPosition(window).x < player.getPosition().x-player.getOrigin().x + player.getSize().x && sf::Mouse::getPosition(window).y < player.getPosition().y-player.getOrigin().y + player.getSize().y && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-//            printf("\nPi menu opened @ player position x: %f, y: %f\n", player.getPosition().x, player.getPosition().y);
-//            //piMenu.setPosition(player.getPosition()-player.getOrigin());
-//            //piMenu.setPosition(player.getPosition().x+player.getSize().x-player.getOrigin().x,player.getPosition().y+player.getSize().y-player.getOrigin().y/2);
-//            piMenuOpen = !piMenuOpen;
-//            if(piMenuOpen){
-//                piMenu.setPosition(player.getPosition().x+player.getSize().x/2-piMenu.getRadius(),player.getPosition().y+player.getSize().y/2-piMenu.getRadius());
-//            }else
-//                piMenu.setPosition(-100.0f,-100.0f);
-//        }
-
 
 
         window.clear();
