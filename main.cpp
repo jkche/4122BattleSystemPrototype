@@ -13,7 +13,7 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Battle System 0.0.1", sf::Style::Close);
 
 	window.setKeyRepeatEnabled(false);
-	player = new Character(0, 0, 100, 100, NULL, NULL);
+	player = new Character(0, 0, 100, 100, new Move()[1], new Move()[1]);
 
 	while (window.isOpen()) {
 		window.clear();

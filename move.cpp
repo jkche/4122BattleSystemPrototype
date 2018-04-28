@@ -1,5 +1,9 @@
 #include "move.h"
 
+Move::Move() {
+	
+}
+
 Move::Move(string movename, int dmgVal, int cdVal) {
 	name = movename;
 	damage = dmgVal;
