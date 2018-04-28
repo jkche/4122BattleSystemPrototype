@@ -51,7 +51,7 @@ int main()
 
 //    sf::Texture playerTexture;
 
-    FillBar hpbar = new FillBar(0, 0, 100, 10, sf::Color::Red, sf::Color::Maroon);
+    FillBar hpbar = new FillBar(0, 0, 100, 10, sf::Color::Red, sf::Color::Magenta);
     hpbar.amount = 0.75f;
 
     //bools
