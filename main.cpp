@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
+#include <move.h>
+#include <character.h>
 //#include <iostream>
 
 //function prototypes
