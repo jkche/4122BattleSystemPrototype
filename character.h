@@ -12,4 +12,4 @@ public:
 	Move[] defenseMoves;
 	Move[] offenseMoves;
 	Character();
-}
+};
