@@ -21,8 +21,8 @@ public:
 		alignment = leftOrRight;
 		fgColor = foregroundColor;
 		bgColor = backgroundColor;
-		foreground = new sf::RectangleShape(sf::Vector2(w, h));
-		background = new sf::RectangleShape(sf::Vector2(w, h));
+		foreground = new sf::RectangleShape(sf::Vector2i(w, h));
+		background = new sf::RectangleShape(sf::Vector2i(w, h));
 		foreground.setPosition(x, y);
 		background.setPosition(x, y);
 		foreground.setFillColor(foregroundColor);
