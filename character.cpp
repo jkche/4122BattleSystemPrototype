@@ -1,4 +1,3 @@
-#include "move.h"
 #include "character.h"
 
 Character::Character(int posx, int posy, int hp, int mp, Move[] dMoves, Move[] oMoves) {

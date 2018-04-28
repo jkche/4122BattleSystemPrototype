@@ -1,5 +1,4 @@
 #include "move.h"
-#include "character.h"
 
 class Character {
 public:
