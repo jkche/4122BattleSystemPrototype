@@ -2,6 +2,9 @@
 #include <cmath>
 #include "move.h"
 #include "character.h"
+//#include "MoveButton.h"
+#include "MoveMenu.h"
+//#include <vector>
 //#include <iostream>
 
 //function prototypes
@@ -21,6 +24,17 @@ int main()
     sf::CircleShape piMenu(30.0f);
     sf::CircleShape piMenuAttackButton(10.0f);
     sf::CircleShape enemyHighlight(30.0f);
+    MoveButton testButton(400,400,sf::Color::Cyan,sf::Color::Yellow,2.0f,30.0f);
+//    std::vector<MoveButton> enemyPiMenu;
+//    for(int i = 0; i < 8; ++i)
+//    {
+//        MoveButton testButton2(i*100, 500, sf::Color::Green, sf::Color::Green,2.0f,20.0f);
+//        enemyPiMenu.push_back(testButton2);
+//    }
+    MoveMenu enemyPiMenu(player.getPosition().x, player.getPosition().y, 80.0f);
+
+//    sf::CircleShape enemyAttackButton1 (10.0f);
+//    sf::CircleShape enemyAttackButton2 (10.0f);
 
     //Color objects
     player.setFillColor(sf::Color::Cyan);
@@ -32,6 +46,8 @@ int main()
     enemyHighlight.setFillColor(sf::Color::Transparent);
     enemyHighlight.setOutlineColor(sf::Color::Yellow);
     enemyHighlight.setOutlineThickness(2.0f);
+//    enemyAttackButton1.setFillColor(sf::Color::Yellow);
+//    enemyAttackButton2.setFillColor(sf::Color::Yellow);
 
     //Position Objects
     player.setOrigin(50.0f, 50.0f);
@@ -56,11 +72,15 @@ int main()
         sf::Event evnt;
         while(window.pollEvent(evnt)){
             ////TEST
-            if(isHoveringEnemy(window, sf::Mouse::getPosition(window), player.getPosition(), 100))
+            if(isHoveringEnemy(window, sf::Mouse::getPosition(window), player.getPosition(), 100)) {
 //                enemyHighlight.setPosition(player.getPosition().x - enemyHighlight.getRadius(), player.getPosition().y - enemyHighlight.getRadius());
                 drawPiMenu(enemyHighlight, player.getPosition());
-            else
+                enemyPiMenu.setMenuPosition(sf::Vector2f(player.getPosition().x+player.getSize().x/2,player.getPosition().y+player.getSize().y/2));
+            }
+            else {
                 enemyHighlight.setPosition(-100.0f, -100.0f);
+                enemyPiMenu.resetMenuPosition();
+            }
 
             ////TEST END
             switch(evnt.type){
@@ -78,7 +98,7 @@ int main()
                 case sf::Event::MouseButtonPressed:
 
                     //Mouse input
-                        //Player move across screen by mouse button
+                    //Player move across screen by mouse button
                     if(sf::Mouse::getPosition(window).x > 312 && sf::Mouse::getPosition(window).y > 492){
                         printf("\nMouse position on action click -> x: %i, y: %i\n",
                                sf::Mouse::getPosition(window).x,sf::Mouse::getPosition(window).y);
@@ -206,6 +226,11 @@ int main()
         window.draw(piMenu);
         window.draw(piMenuAttackButton);
         window.draw(enemyHighlight);
+        window.draw(testButton.getAppearance());
+        for(int i = 0; i < enemyPiMenu.piMenu.size(); ++i)
+        {
+            window.draw(enemyPiMenu.piMenu[i].getAppearance());
+        }
         window.display();
     }
 
@@ -227,4 +252,5 @@ bool isHoveringEnemy(sf::RenderWindow & win, sf::Vector2i mousePos, sf::Vector2f
 
 void drawPiMenu(sf::CircleShape & enemyCircle, sf::Vector2f enemyPos){
     enemyCircle.setPosition(enemyPos.x - enemyCircle.getRadius(), enemyPos.y - enemyCircle.getRadius());
+
 }

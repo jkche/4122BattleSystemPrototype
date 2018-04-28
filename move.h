@@ -13,4 +13,4 @@ public:
 	bool moveUsed;
 	Move(string movename, int dmgVal, int cdVal);
 	void update();
-}
+};
