@@ -1,4 +1,5 @@
-#include "move.h"
+//#include "move.h"
+#include "MoveMenu.h"
 #include <vector>
 
 class Character {
@@ -15,8 +16,8 @@ public:
 
 	sf::RectangleShape drawing;
 
-	vector<Move> defenseMoves;
-	vector<Move> offenseMoves;
+	std::vector<Move> defenseMoves;
+	std::vector<Move> offenseMoves;
 	Character(bool dead) {
 		alive = false;
 	}

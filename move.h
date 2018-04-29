@@ -1,16 +1,16 @@
 #include <string>
 
-using namespace std;
-
 class Move {
 public:
-	string name;
+	std::string name;
 	int damage;
 	int cost;
 	int cooldown;
 	int currentCooldown;
 	bool isReady;
 	bool moveUsed;
-	Move(string movename, int dmgVal, int cdVal);
+	bool exists;
+	Move();
+	Move(std::string, int, int);
 	void update();
 };

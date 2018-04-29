@@ -6,6 +6,7 @@
 #define SFMLDEMO_MOVEMENU_H
 
 #include "MoveButton.h"
+#include "move.h"
 #include <vector>
 
 
@@ -19,6 +20,7 @@ public:
     std::vector<MoveButton> piMenu;
     MoveMenu();
     MoveMenu(float,float,float);    //center x, center y, radius
+    MoveMenu(float,float,float, std::vector<Move>);    //center x, center y, radius
     sf::Vector2f getCenter();
     void setCenter(sf::Vector2f);
     void setMenuPosition(sf::Vector2f);

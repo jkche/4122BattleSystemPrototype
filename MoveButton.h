@@ -18,7 +18,9 @@ private:
     float posY;
 public:
     //Constructors
+    bool active;
     MoveButton();
+    MoveButton(bool);
     MoveButton(float,float,sf::Color,sf::Color,sf::Color,float,float);    //init x, y, fill color, outline color, outline thickness, radius
 
     //Get functions

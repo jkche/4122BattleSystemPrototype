@@ -13,7 +13,23 @@ MoveMenu::MoveMenu(float x, float y, float r) {
     numButtons = 8;
     piMenu.clear();
     for(int i = 0; i < numButtons; ++i){
-        MoveButton mButton(-100.0f,-100.0f,sf::Color::Green, sf::Color::Cyan,sf::Color::Yellow,2.0f,30.0f);  //button off-center displacement already accounted for in MoveButton.cpp; hide buttons at init
+        MoveButton mButton(false);
+        piMenu.push_back(mButton);
+    }
+}
+
+MoveMenu::MoveMenu(float x, float y, float r, std::vector<Move> moves) {
+    center = sf::Vector2f(x, y);
+    radius = r;
+    numButtons = 8;
+    piMenu.clear();
+    for(int i = 0; i < numButtons; ++i) {
+        MoveButton mButton;
+        if (moves[i].exists) {
+            mButton = MoveButton(-100.0f,-100.0f,sf::Color::Green, sf::Color::Cyan,sf::Color::Yellow,2.0f,30.0f);  //button off-center displacement already accounted for in MoveButton.cpp; hide buttons at init
+        } else {
+            mButton = MoveButton(false);
+        }
         piMenu.push_back(mButton);
     }
 }

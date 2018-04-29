@@ -1,8 +1,9 @@
+#define _GLIBCXX_USE_CXX11_ABI 0
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include "character.h"
 #include "FillBar.h"
-#include "MoveMenu.h"
+//#include "MoveMenu.h"
 //#include <typeinfo>
 #include <vector>
 
@@ -40,13 +41,14 @@ sf::Color HPBackColor(100,0,0,255);
 sf::Color MPFillColor(0,0,255,255);
 sf::Color MPBackColor(0,0,100,255);
 
-vector<Character> allyteam;
-vector<Character> enemyteam;
+std::vector<Character> allyteam;
+std::vector<Character> enemyteam;
 
-vector<FillBar> HPBars;
-vector<FillBar> MPBars;
+std::vector<FillBar> HPBars;
+std::vector<FillBar> MPBars;
 
 sf::CircleShape playerHighlight;
+sf::RectangleShape turnIndicator;
 
 int turn;
 
@@ -57,8 +59,19 @@ int main() {
     window.setKeyRepeatEnabled(false);
 
     std::vector<Move> ally1DefMoves;
+    ally1DefMoves.push_back(Move("Shout", 10, 2));
+    ally1DefMoves.push_back(Move("Heal", 10, 5));
+    for (int i = 2; i < 8; ++i) {
+    	ally1DefMoves.push_back(Move());
+    }
     std::vector<Move> ally1OffMoves;
+    ally1OffMoves.push_back(Move("Slash", 10, 1));
+    ally1OffMoves.push_back(Move("Boomerang Blade", 50, 4));
+    for (int i = 2; i < 8; ++i) {
+    	ally1OffMoves.push_back(Move());
+    }
     allyteam.push_back(Character(ally1Xpos, Ystart, 100, 100, ally1DefMoves, ally1OffMoves));
+    //allyteam.push_back(Character(false));
     allyteam.push_back(Character(ally1Xpos + Xoffset, Ystart + Ygap, 100, 100, ally1DefMoves, ally1OffMoves));
     allyteam.push_back(Character(ally1Xpos, Ystart + 2 * Ygap, 100, 100, ally1DefMoves, ally1OffMoves));
     
@@ -73,8 +86,8 @@ int main() {
     for (int i = 0; i < allyteam.size(); ++i) {
 		HPBars.push_back(FillBar(allyteam[i].x, allyteam[i].y + allyteam[i].height + HP_BAR_OFFSET, 100, HP_BAR_HEIGHT, HPFillColor, HPBackColor, 0));
 		MPBars.push_back(FillBar(allyteam[i].x, allyteam[i].y + allyteam[i].height + HP_BAR_OFFSET + HP_BAR_HEIGHT + MP_BAR_OFFSET, 100, MP_BAR_HEIGHT, MPFillColor, MPBackColor, 0));
-		defMenus.push_back(MoveMenu(-1000.0f, -1000.0f, CIRCLE_MENU_RADIUS));
-		offMenus.push_back(MoveMenu(-1000.0f, -1000.0f, CIRCLE_MENU_RADIUS));
+		defMenus.push_back(MoveMenu(-1000.0f, -1000.0f, CIRCLE_MENU_RADIUS, ally1DefMoves));
+		offMenus.push_back(MoveMenu(-1000.0f, -1000.0f, CIRCLE_MENU_RADIUS, ally1OffMoves));
 	}
 	
 
@@ -95,6 +108,13 @@ int main() {
     playerHighlight.setOutlineColor(sf::Color::Yellow);
     playerHighlight.setOutlineThickness(2.0f);
 
+    turnIndicator.setFillColor(sf::Color::Green);
+    turnIndicator.setSize(sf::Vector2f(10.0f, 10.0f));
+
+    while (allyteam[turn].alive == false) {
+    	turn++;
+    }
+
     while(window.isOpen())
     {
     	//cout << (hpbar.foreground).getSize() << endl;
@@ -106,6 +126,14 @@ int main() {
                     break;
             }
         }
+
+        if (turn < 3) {
+        	turnIndicator.setPosition(allyteam[turn].x + allyteam[turn].width/2 - 5, allyteam[turn].y - 20);
+        } else {
+        	turnIndicator.setPosition(enemyteam[turn - 3].x + enemyteam[turn - 3].width/2 - 5, enemyteam[turn - 3].y - 20);
+        }
+
+
         sf::Vector2i mousePos = sf::Mouse::getPosition(window);
         if (allySelect > -1) {
         	allySelect = isHoveringAlly2(allySelect, mousePos);
@@ -171,6 +199,7 @@ int main() {
         	window.draw(offMenus[turn].piMenu[i].getAppearance());
         	window.draw(defMenus[turn].piMenu[i].getAppearance());
         }
+        window.draw(turnIndicator);
         window.draw(playerHighlight);
         window.display();
     }

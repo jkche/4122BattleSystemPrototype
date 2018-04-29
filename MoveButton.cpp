@@ -9,14 +9,23 @@ MoveButton::MoveButton() {
 }
 
 MoveButton::MoveButton(float x, float y, sf::Color fillColor, sf::Color highlightColor, sf::Color outlineColor, float outlineThickness, float radiusIn) {
+    active = true;
     appearance = sf::CircleShape(radiusIn);
-    appearance.setPosition(x-radiusIn, y-radiusIn);
+    //appearance.setPosition(x-radiusIn, y-radiusIn);
     color = fillColor;
     Hcolor = highlightColor;
     appearance.setFillColor(color);
     appearance.setOutlineColor(outlineColor);
     appearance.setOutlineThickness(outlineThickness);
     radius = radiusIn;
+}
+
+MoveButton::MoveButton(bool active) {
+    active = false;
+    appearance = sf::CircleShape(30.0f);
+    radius = 30.0;
+    color = sf::Color(100,100,100,255);
+    Hcolor = sf::Color(100,100,100,255);
 }
 
 void MoveButton::highlight() {

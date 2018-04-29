@@ -29,12 +29,14 @@ MoveMenu.h
 /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.h
 MoveButton.h
 /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.h
+move.h
+/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.h
 vector
 -
 
 /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.h
-move.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.h
+MoveMenu.h
+/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.h
 vector
 -
 
@@ -47,8 +49,6 @@ character.h
 /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.h
 FillBar.h
 /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/FillBar.h
-MoveMenu.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.h
 vector
 -
 
