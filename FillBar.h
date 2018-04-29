@@ -25,8 +25,8 @@ public:
 		background.setSize(sf::Vector2f((float) w, (float) h));
 		foreground.setPosition(x, y);
 		background.setPosition(x, y);
-		foreground.setFillColor(foregroundColor);
-		background.setFillColor(backgroundColor);
+		foreground.setFillColor(fgColor);
+		background.setFillColor(bgColor);
 
 	}
 
