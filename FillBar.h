@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class FillBar {
 public:
@@ -39,5 +40,6 @@ public:
 			foreground.setPosition(x, y);
 		}
 		foreground.setScale(amount, 1.0f);
+		cout << "fill bar" << endl;
 	}
 };

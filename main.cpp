@@ -51,7 +51,7 @@ int main()
 
 //    sf::Texture playerTexture;
 
-    FillBar *hpbar = new FillBar(100, 100, 400, 100, sf::Color::Red, sf::Color::Magenta);
+    FillBar *hpbar = new FillBar(100, 100, 400, 100, sf::Color::Red, sf::Color::Magenta, 0);
     hpbar->amount = 0.75f;
 
     //bools
@@ -60,7 +60,7 @@ int main()
 
     while(window.isOpen())
     {
-    	/*
+    	
         sf::Event evnt;
         while(window.pollEvent(evnt)){
             ////TEST
@@ -127,26 +127,26 @@ int main()
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) && player.getPosition().x <= window.getSize().x){
             player.move(0.1f, 0.0f);
         }
-        */
+        
         hpbar->update();
 
         window.clear();
-        /*
+        
         window.draw(player);
         window.draw(moveButton);
         window.draw(piMenu);
         window.draw(piMenuAttackButton);
         window.draw(enemyHighlight);
         window.draw(testButton.getAppearance());
-        */
+        
         window.draw(hpbar->background);
         window.draw(hpbar->foreground);
-        /*
+        
         for(int i = 0; i < enemyPiMenu.piMenu.size(); ++i)
         {
             window.draw(enemyPiMenu.piMenu[i].getAppearance());
         }
-        */
+        
         window.display();
     }
     //delete hpbar;
