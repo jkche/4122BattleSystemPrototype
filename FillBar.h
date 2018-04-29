@@ -36,7 +36,7 @@ public:
 		if (alignment == 0) {
 			foreground.setPosition(x, y);
 		}
-		foreground.setScale(amount, 1.0f);
+		//foreground.setScale(amount, 1.0f);
 		//cout << "fill bar" << endl;
 	}
 };
