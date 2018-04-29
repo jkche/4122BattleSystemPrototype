@@ -40,6 +40,6 @@ public:
 			foreground.setPosition(x, y);
 		}
 		foreground.setScale(amount, 1.0f);
-		cout << "fill bar" << endl;
+		//cout << "fill bar" << endl;
 	}
 };
