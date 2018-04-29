@@ -13,7 +13,7 @@ MoveMenu::MoveMenu(float x, float y, float r) {
     numButtons = 8;
     piMenu.clear();
     for(int i = 0; i < numButtons; ++i){
-        MoveButton mButton(-100.0f,-100.0f,sf::Color::Green,sf::Color::Yellow,2.0f,30.0f);  //button off-center displacement already accounted for in MoveButton.cpp; hide buttons at init
+        MoveButton mButton(-100.0f,-100.0f,sf::Color::Green, sf::Color::Cyan,sf::Color::Yellow,2.0f,30.0f);  //button off-center displacement already accounted for in MoveButton.cpp; hide buttons at init
         piMenu.push_back(mButton);
     }
 }
@@ -32,7 +32,7 @@ void MoveMenu::setMenuPosition(sf::Vector2f c){
 //    printf("%i\n",piMenu.size());
     for(int i = 0; i < numButtons; ++i)
     {
-        piMenu[i].setPosition(center.x + radius*cos(i*2*PI/numButtons)-radius,center.y + radius*sin(i*2*PI/numButtons)-radius);
+        piMenu[i].setPosition(center.x + radius*cos(i*2*PI/numButtons),center.y + radius*sin(i*2*PI/numButtons));
     }
 }
 

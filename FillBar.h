@@ -18,6 +18,8 @@ public:
 	FillBar(int posX, int posY, int width, int height, sf::Color foregroundColor, sf::Color backgroundColor, int leftOrRight) {
 		x = posX;
 		y = posY;
+		w = width;
+		h = height;
 		amount = 1.0f;
 		alignment = leftOrRight;
 		fgColor = foregroundColor;
@@ -28,7 +30,6 @@ public:
 		background.setPosition(x, y);
 		foreground.setFillColor(fgColor);
 		background.setFillColor(bgColor);
-
 	}
 
 	void update() {
@@ -36,7 +37,9 @@ public:
 		if (alignment == 0) {
 			foreground.setPosition(x, y);
 		}
-		//foreground.setScale(amount, 1.0f);
+		//foreground.setSize(sf::Vector2f((float) w * amount, (float) h));
+		//background.setSize(sf::Vector2f((float) w, (float) h));
+		foreground.setScale(amount, 1.0f);
 		//cout << "fill bar" << endl;
 	}
 };

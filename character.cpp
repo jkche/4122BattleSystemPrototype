@@ -1,6 +1,6 @@
 #include "character.h"
-
-Character::Character(int posx, int posy, int hp, int mp, Move[] dMoves, Move[] oMoves) {
+/*
+Character::Character(int posx, int posy, int hp, int mp, std::vector<Move> dMoves, std::vector<Move> oMoves) {
 	x = posx;
 	y = posy;
 	health = hp;
@@ -9,4 +9,4 @@ Character::Character(int posx, int posy, int hp, int mp, Move[] dMoves, Move[] o
 	maxmana = mp;
 	defenseMoves = dMoves;
 	offenseMoves = oMoves;
-}
+}*/

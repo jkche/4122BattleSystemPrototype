@@ -9,6 +9,7 @@ set(SOURCE_FILES move.h)
 set(SOURCE_FILES move.cpp)
 set(SOURCE_FILES character.h)
 set(SOURCE_FILES character.cpp)
+set(SOURCE_FILES FillBar.h)
 
 #set(EXECUTABLE_NAME "SFMLDemo")
 #add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
@@ -22,3 +23,9 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 include_directories(${SFML_INCLUDE_DIR})
 add_executable(SFMLDemo main.cpp MoveButton.cpp MoveButton.h MoveMenu.cpp MoveMenu.h)
 target_link_libraries(SFMLDemo sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
+
+add_custom_target(run
+    COMMAND SFMLDemo
+    DEPENDS SFMLDemo
+    WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
+)

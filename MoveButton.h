@@ -10,6 +10,8 @@
 class MoveButton {
 private:
     sf::CircleShape appearance;
+    sf::Color color;
+    sf::Color Hcolor;
     float centerX;
     float centerY;
     float posX;
@@ -17,12 +19,17 @@ private:
 public:
     //Constructors
     MoveButton();
-    MoveButton(float,float,sf::Color,sf::Color,float,float);    //init x, y, fill color, outline color, outline thickness, radius
+    MoveButton(float,float,sf::Color,sf::Color,sf::Color,float,float);    //init x, y, fill color, outline color, outline thickness, radius
 
     //Get functions
     sf::CircleShape getAppearance();
+    void highlight();
+    void unhighlight();
     void setCenter(float, float);
     void setPosition(float, float);
+    sf::Vector2f getPosition();
+    sf::Vector2f getCenter();
+    float radius;
 };
 
 
