@@ -60,7 +60,7 @@ int main()
 
     while(window.isOpen())
     {
-    	
+    	System.out.println(hpbar->amount):
         sf::Event evnt;
         while(window.pollEvent(evnt)){
             ////TEST
