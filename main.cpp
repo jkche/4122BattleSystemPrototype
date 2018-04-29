@@ -60,7 +60,7 @@ int main()
 
     while(window.isOpen())
     {
-    	cout << hpbar->scale << endl;
+    	cout << hpbar->amount << endl;
         sf::Event evnt;
         while(window.pollEvent(evnt)){
             ////TEST
