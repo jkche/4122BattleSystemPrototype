@@ -126,7 +126,7 @@ int main()
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) && player.getPosition().x <= window.getSize().x){
             player.move(0.1f, 0.0f);
         }
-
+        hpbar->update();
 
         window.clear();
         window.draw(player);
