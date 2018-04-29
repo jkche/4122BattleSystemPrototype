@@ -15,6 +15,10 @@ public:
 	sf::RectangleShape background;
 	sf::RectangleShape foreground;
 
+	FillBar(int x, int y, int width, int height, sf::Color foregroundColor, sf::Color backgroundColor) {
+		FillBar(x, y, width, height, foregroundColor, backgroundColor, 0);
+	}
+
 	FillBar(int posX, int posY, int width, int height, sf::Color foregroundColor, sf::Color backgroundColor, int leftOrRight) {
 		x = posX;
 		y = posY;
@@ -31,9 +35,6 @@ public:
 
 	}
 
-	FillBar(int x, int y, int width, int height, sf::Color foregroundColor, sf::Color backgroundColor) {
-		FillBar(x, y, width, height, foregroundColor, backgroundColor, 0);
-	}
 	void update() {
 		background.setPosition(x, y);
 		if (alignment == 0) {
