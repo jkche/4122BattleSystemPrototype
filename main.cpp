@@ -60,7 +60,7 @@ int main()
 
     while(window.isOpen())
     {
-    	cout << hpbar->amount << endl;
+    	cout << hpbar->foreground.getSize() << endl;
         sf::Event evnt;
         while(window.pollEvent(evnt)){
             ////TEST
