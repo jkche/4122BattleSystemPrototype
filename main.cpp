@@ -52,7 +52,7 @@ int main()
 //    sf::Texture playerTexture;
 
     FillBar *hpbar = new FillBar(0, 0, 100, 10, sf::Color::Red, sf::Color::Magenta);
-    hpbar.amount = 0.75f;
+    hpbar->amount = 0.75f;
 
     //bools
     bool piMenuOpen = false;
@@ -135,8 +135,8 @@ int main()
         window.draw(piMenuAttackButton);
         window.draw(enemyHighlight);
         window.draw(testButton.getAppearance());
-        window.draw(hpbar.background);
-        window.draw(hpbar.foreground);
+        window.draw(hpbar->background);
+        window.draw(hpbar->foreground);
         for(int i = 0; i < enemyPiMenu.piMenu.size(); ++i)
         {
             window.draw(enemyPiMenu.piMenu[i].getAppearance());
