@@ -1,6 +1,14 @@
 #include "character.h"
-Character::Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves, std::string name, sf::Vector2u imageCount, float switchTime, float speed) :
-animation(imageCount, switchTime)
+Character::Character(bool dead, sf::Texture *texture):
+    animation(texture, sf::Vector2u(0,0),0.0f) {
+    alive = selected = faceRight = faceTop = moving = false;
+    health = maxhealth = mana = maxmana = attackTimer = speed = 0.0f;
+    x = y = row = 0;
+
+}
+
+Character::Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves, sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed) :
+animation(texture, imageCount, switchTime)
 {
 	alive = true;
 	x = posx;
@@ -24,15 +32,15 @@ animation(imageCount, switchTime)
     faceRight = true;
     // drawing.setSize(sf::Vector2f(100.0f,100.0f));
     // drawing.setPosition(100.0f,100.0f);
-    // drawing.setTexture(texture);
+     drawing.setTexture(texture);
 //    drawing.setOrigin(50.0f, 50.0f);
-    nameOfSpriteSheet = name;
+//    nameOfSpriteSheet = name;
 }
 
-void Character::initTexture(sf::Texture* texture){
-	drawing.setTexture(texture);
-	animation.initSize(texture);
-}
+//void Character::initTexture(sf::Texture* texture){
+//	drawing.setTexture(texture);
+//	animation.initSize(texture);
+//}
 
 //For movement on a map; may not need
 void Character::update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f origPos, bool isAttack){
