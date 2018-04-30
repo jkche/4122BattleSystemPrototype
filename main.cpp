@@ -65,18 +65,17 @@ int main() {
     window.setKeyRepeatEnabled(false);
 
     std::vector<Move> ally1DefMoves;
-
     //Move 1
 
-    ally1DefMoves.push_back(Move("Shout", 10, 2));
-    ally1DefMoves.push_back(Move("Heal", 10, 5));
-    for (int i = 2; i < 8; ++i) {
+    //ally1DefMoves.push_back(Move("Shout", 10, 2));
+    //ally1DefMoves.push_back(Move("Heal", 10, 5));
+    for (int i = 0; i < 8; ++i) {
     	ally1DefMoves.push_back(Move());
     }
     std::vector<Move> ally1OffMoves;
-    ally1OffMoves.push_back(Move("Slash", 10, 1));
-    ally1OffMoves.push_back(Move("Boomerang Blade", 50, 4));
-    for (int i = 2; i < 8; ++i) {
+    //ally1OffMoves.push_back(Move("Slash", 10, 1));
+    //ally1OffMoves.push_back(Move("Boomerang Blade", 50, 4));
+    for (int i = 0; i < 8; ++i) {
     	ally1OffMoves.push_back(Move());
     }
     allyteam.push_back(Character(ally1Xpos, Ystart, 100, 100, ally1DefMoves, ally1OffMoves));
