@@ -1,11 +1,11 @@
-#define _GLIBCXX_USE_CXX11_ABI 0
+//#define _GLIBCXX_USE_CXX11_ABI 0
 #include <SFML/Graphics.hpp>
 #include <cmath>
 
 //#include "MoveMenu.h"
 //#include <typeinfo>
-#include <string>
-#include <vector>
+//#include <string>
+//#include <vector>
 
 #include "character.h"
 #include "FillBar.h"
