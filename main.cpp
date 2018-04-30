@@ -81,10 +81,12 @@ int main() {
     for (int i = 0; i < 8; ++i) {
     	ally1OffMoves.push_back(Move());
     }
-    allyteam.push_back(Character(ally1Xpos, Ystart, 100, 100, ally1DefMoves, ally1OffMoves));
+
+//    Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves, std::string name, sf::Vector2u imageCount, float switchTime, float speed);
+    allyteam.push_back(Character(ally1Xpos, Ystart, 100, 100, ally1DefMoves, ally1OffMoves, "player.png", sf::Vector2u(3,4), 0.25f, 100.0f));
     //allyteam.push_back(Character(false));
-    allyteam.push_back(Character(ally1Xpos + Xoffset, Ystart + Ygap, 100, 100, ally1DefMoves, ally1OffMoves));
-    allyteam.push_back(Character(ally1Xpos, Ystart + 2 * Ygap, 100, 100, ally1DefMoves, ally1OffMoves));
+    allyteam.push_back(Character(ally1Xpos + Xoffset, Ystart + Ygap, 100, 100, ally1DefMoves, ally1OffMoves, "player.png", sf::Vector2u(3,4), 0.25f, 100.0f));
+    allyteam.push_back(Character(ally1Xpos, Ystart + 2 * Ygap, 100, 100, ally1DefMoves, ally1OffMoves, "player.png", sf::Vector2u(3,4), 0.25f, 100.0f));
     
     std::vector<MoveMenu> defMenus;
     std::vector<MoveMenu> offMenus;
@@ -104,9 +106,9 @@ int main() {
 
     std::vector<Move> enemy1DefMoves;
     std::vector<Move> enemy1OffMoves;
-    enemyteam.push_back(Character(enemy1Xpos, Ystart, 100, 100, enemy1DefMoves, enemy1OffMoves));
-    enemyteam.push_back(Character(enemy1Xpos - Xoffset, Ystart + Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves));
-    enemyteam.push_back(Character(enemy1Xpos, Ystart + 2 * Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves));
+    enemyteam.push_back(Character(enemy1Xpos, Ystart, 100, 100, enemy1DefMoves, enemy1OffMoves, "player.png", sf::Vector2u(3,4), 0.25f, 100.0f));
+    enemyteam.push_back(Character(enemy1Xpos - Xoffset, Ystart + Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, "player.png", sf::Vector2u(3,4), 0.25f, 100.0f));
+    enemyteam.push_back(Character(enemy1Xpos, Ystart + 2 * Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, "player.png", sf::Vector2u(3,4), 0.25f, 100.0f));
 
     for (int i = 0; i < enemyteam.size(); ++i) {
 		HPBars.push_back(FillBar(enemyteam[i].x, enemyteam[i].y + enemyteam[i].height + HP_BAR_OFFSET, 100, HP_BAR_HEIGHT, HPFillColor, HPBackColor, 0));

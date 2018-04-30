@@ -21,8 +21,11 @@ public:
 
 	std::vector<Move> defenseMoves;
 	std::vector<Move> offenseMoves;
-	Character(bool dead) {
-		alive = false;
+	Character(bool dead):animation(sf::Vector2u(0,0),0.0f) {
+		alive = selected = faceRight = faceTop = moving = false;
+		health = maxhealth = mana = maxmana = attackTimer = speed = 0.0f;
+		x = y = row = 0;
+
 	}
 
 
@@ -48,7 +51,7 @@ private:
     bool faceRight;	//for map movement only; may not need
     bool faceTop;	//for map movement only; may not need
     bool moving;	//indicates if char is moving across battle during an attack animation
-    std::string nameOfSpriteSheet	//holds name of texture file to be read in main.cpp
+    std::string nameOfSpriteSheet;	//holds name of texture file to be read in main.cpp
 
     sf::Vector2f velocity;		//for map movement only; may not need
     sf::Vector2f origPos;	//for battle: calculations for moving char to enemy

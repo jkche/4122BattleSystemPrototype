@@ -1,6 +1,5 @@
 #include "character.h"
-
-Character::Character(int posx, int posy, int hp, int mp, std::vector<Move> dMoves, std::vector<Move> oMoves, std::string name, sf::Vector2u imageCount, float switchTime, float speed) :
+Character::Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves, std::string name, sf::Vector2u imageCount, float switchTime, float speed) :
 animation(imageCount, switchTime)
 {
 	alive = true;
@@ -30,7 +29,7 @@ animation(imageCount, switchTime)
     nameOfSpriteSheet = name;
 }
 
-void Player::initTexture(sf::Texture* texture){
+void Character::initTexture(sf::Texture* texture){
 	drawing.setTexture(texture);
 	animation.initSize(texture);
 }
