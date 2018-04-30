@@ -31,7 +31,7 @@ int main()
     sf::CircleShape piMenu(30.0f);
     sf::CircleShape piMenuAttackButton(10.0f);
     sf::CircleShape enemyHighlight(30.0f);
-    MoveButton testButton(400,400,sf::Color::Cyan,sf::Color::Yellow,2.0f,30.0f);
+ //   MoveButton testButton(400,400,sf::Color::Cyan,sf::Color::Yellow,2.0f,30.0f);
     MoveMenu enemyPiMenu(player.getPosition().x, player.getPosition().y, 80.0f);
     sf::RectangleShape enemyBox(sf::Vector2f(100.0f, 100.0f));
     sf::CircleShape enemyHighlight2(30.0f);
@@ -117,14 +117,6 @@ int main()
                 case sf::Event::Closed:
                     window.close();
                     break;
-                case sf::Event::Resized:
-                    //std::cout << "New window width: " << evnt.size.width << " New window height: "<< evnt.size.height << std::endl;
-                    printf("New window width: %i New window height: %i\n", evnt.size.width, evnt.size.height);
-                    break;
-                case sf::Event::TextEntered:
-                    if(evnt.text.unicode < 128){
-                        printf("%c", evnt.text.unicode);
-                    }
                 case sf::Event::MouseButtonPressed:
                     if(isHoveringEnemy(window, sf::Mouse::getPosition(window), player.getPosition(), 50)) {
                         playerSelect = true;
@@ -203,7 +195,7 @@ int main()
         window.draw(piMenu);
         window.draw(piMenuAttackButton);
         window.draw(enemyHighlight);
-        window.draw(testButton.getAppearance());
+  //      window.draw(testButton.getAppearance());
         for(int i = 0; i < enemyPiMenu.piMenu.size(); ++i)
         {
             window.draw(enemyPiMenu.piMenu[i].getAppearance());
