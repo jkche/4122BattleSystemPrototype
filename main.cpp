@@ -57,8 +57,11 @@ sf::RectangleShape turnIndicator;
 //moveFont.loadFromFile("arial.ttf");
 
 int turn;
+float deltaTime = 0.0f;
 
 int main() {
+    sf::Clock clock;
+    deltaTime = clock.restart().asSeconds();
 	sf::RenderWindow window(sf::VideoMode(1920,1080), "Lonely Blade", sf::Style::Close | sf::Style::Resize);
 
     //Disable key repeat for mouse clicks
@@ -190,6 +193,7 @@ int main() {
         for (int i = 0; i < allyteam.size(); ++i) {
         	if (allyteam[i].alive) {
 //	        	window.draw(allyteam[i].drawing);
+                allyteam[i].updateAttack(deltaTime,enemyteam[0].getPosition(),false,15,2);
                 allyteam[i].draw(window);
 	        	HPBars[i].amount = allyteam[i].health/allyteam[i].maxhealth;
 	        	HPBars[i].update();
@@ -204,6 +208,7 @@ int main() {
         for (int i = 0; i < enemyteam.size(); ++i) {
         	if (enemyteam[i].alive) {
 //	        	window.draw(enemyteam[i].drawing);
+                enemyteam[i].updateAttack(deltaTime,allyteam[0].getPosition(),false,15,2);
                 enemyteam[i].draw(window);
 	        	HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
 	        	HPBars[i + allyteam.size()].update();
