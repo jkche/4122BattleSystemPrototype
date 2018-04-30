@@ -6,5 +6,5 @@ CXX_FLAGS =  -IC:/Users/justi_000/Desktop/SFML/include -LC:/Users/justi_000/Desk
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = @CMakeFiles/SFMLDemo.dir/includes_CXX.rsp
+CXX_INCLUDES = 
 

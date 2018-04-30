@@ -57,7 +57,6 @@ include CMakeFiles/SFMLDemo.dir/progress.make
 include CMakeFiles/SFMLDemo.dir/flags.make
 
 CMakeFiles/SFMLDemo.dir/main.cpp.obj: CMakeFiles/SFMLDemo.dir/flags.make
-CMakeFiles/SFMLDemo.dir/main.cpp.obj: CMakeFiles/SFMLDemo.dir/includes_CXX.rsp
 CMakeFiles/SFMLDemo.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SFMLDemo.dir/main.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SFMLDemo.dir\main.cpp.obj -c C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\main.cpp
@@ -82,7 +81,6 @@ CMakeFiles/SFMLDemo.dir/main.cpp.obj.provides.build: CMakeFiles/SFMLDemo.dir/mai
 
 
 CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj: CMakeFiles/SFMLDemo.dir/flags.make
-CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj: CMakeFiles/SFMLDemo.dir/includes_CXX.rsp
 CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj: ../MoveButton.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SFMLDemo.dir\MoveButton.cpp.obj -c C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\MoveButton.cpp
@@ -107,7 +105,6 @@ CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj.provides.build: CMakeFiles/SFMLDemo.d
 
 
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj: CMakeFiles/SFMLDemo.dir/flags.make
-CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj: CMakeFiles/SFMLDemo.dir/includes_CXX.rsp
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj: ../MoveMenu.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SFMLDemo.dir\MoveMenu.cpp.obj -c C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\MoveMenu.cpp
@@ -131,11 +128,86 @@ CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj.provides: CMakeFiles/SFMLDemo.dir/MoveM
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj.provides.build: CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj
 
 
+CMakeFiles/SFMLDemo.dir/move.cpp.obj: CMakeFiles/SFMLDemo.dir/flags.make
+CMakeFiles/SFMLDemo.dir/move.cpp.obj: ../move.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SFMLDemo.dir/move.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SFMLDemo.dir\move.cpp.obj -c C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\move.cpp
+
+CMakeFiles/SFMLDemo.dir/move.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/move.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\move.cpp > CMakeFiles\SFMLDemo.dir\move.cpp.i
+
+CMakeFiles/SFMLDemo.dir/move.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/move.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\move.cpp -o CMakeFiles\SFMLDemo.dir\move.cpp.s
+
+CMakeFiles/SFMLDemo.dir/move.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SFMLDemo.dir/move.cpp.obj.requires
+
+CMakeFiles/SFMLDemo.dir/move.cpp.obj.provides: CMakeFiles/SFMLDemo.dir/move.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/move.cpp.obj.provides.build
+.PHONY : CMakeFiles/SFMLDemo.dir/move.cpp.obj.provides
+
+CMakeFiles/SFMLDemo.dir/move.cpp.obj.provides.build: CMakeFiles/SFMLDemo.dir/move.cpp.obj
+
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.obj: CMakeFiles/SFMLDemo.dir/flags.make
+CMakeFiles/SFMLDemo.dir/Animation.cpp.obj: ../Animation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SFMLDemo.dir/Animation.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SFMLDemo.dir\Animation.cpp.obj -c C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\Animation.cpp
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/Animation.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\Animation.cpp > CMakeFiles\SFMLDemo.dir\Animation.cpp.i
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/Animation.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\Animation.cpp -o CMakeFiles\SFMLDemo.dir\Animation.cpp.s
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SFMLDemo.dir/Animation.cpp.obj.requires
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.obj.provides: CMakeFiles/SFMLDemo.dir/Animation.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/Animation.cpp.obj.provides.build
+.PHONY : CMakeFiles/SFMLDemo.dir/Animation.cpp.obj.provides
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.obj.provides.build: CMakeFiles/SFMLDemo.dir/Animation.cpp.obj
+
+
+CMakeFiles/SFMLDemo.dir/character.cpp.obj: CMakeFiles/SFMLDemo.dir/flags.make
+CMakeFiles/SFMLDemo.dir/character.cpp.obj: ../character.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SFMLDemo.dir/character.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SFMLDemo.dir\character.cpp.obj -c C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\character.cpp
+
+CMakeFiles/SFMLDemo.dir/character.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/character.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\character.cpp > CMakeFiles\SFMLDemo.dir\character.cpp.i
+
+CMakeFiles/SFMLDemo.dir/character.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/character.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\character.cpp -o CMakeFiles\SFMLDemo.dir\character.cpp.s
+
+CMakeFiles/SFMLDemo.dir/character.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SFMLDemo.dir/character.cpp.obj.requires
+
+CMakeFiles/SFMLDemo.dir/character.cpp.obj.provides: CMakeFiles/SFMLDemo.dir/character.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/character.cpp.obj.provides.build
+.PHONY : CMakeFiles/SFMLDemo.dir/character.cpp.obj.provides
+
+CMakeFiles/SFMLDemo.dir/character.cpp.obj.provides.build: CMakeFiles/SFMLDemo.dir/character.cpp.obj
+
+
 # Object files for target SFMLDemo
 SFMLDemo_OBJECTS = \
 "CMakeFiles/SFMLDemo.dir/main.cpp.obj" \
 "CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj" \
-"CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj"
+"CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj" \
+"CMakeFiles/SFMLDemo.dir/move.cpp.obj" \
+"CMakeFiles/SFMLDemo.dir/Animation.cpp.obj" \
+"CMakeFiles/SFMLDemo.dir/character.cpp.obj"
 
 # External object files for target SFMLDemo
 SFMLDemo_EXTERNAL_OBJECTS =
@@ -143,11 +215,14 @@ SFMLDemo_EXTERNAL_OBJECTS =
 SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/main.cpp.obj
 SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj
 SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj
+SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/move.cpp.obj
+SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/Animation.cpp.obj
+SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/character.cpp.obj
 SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/build.make
 SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/linklibs.rsp
 SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/objects1.rsp
 SFMLDemo.exe: CMakeFiles/SFMLDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable SFMLDemo.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SFMLDemo.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SFMLDemo.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -158,6 +233,9 @@ CMakeFiles/SFMLDemo.dir/build: SFMLDemo.exe
 CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/main.cpp.obj.requires
 CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj.requires
 CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj.requires
+CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/move.cpp.obj.requires
+CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/Animation.cpp.obj.requires
+CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/character.cpp.obj.requires
 
 .PHONY : CMakeFiles/SFMLDemo.dir/requires
 

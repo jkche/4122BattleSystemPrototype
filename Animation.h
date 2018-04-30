@@ -9,9 +9,9 @@
 
 class Animation {
 public:
-    Animation(sf::Vector2u imageCount, float switchTime);
+    Animation(sf::Texture* texture, sf::Vector2u imageCount, float switchTime);
     ~Animation();
-    void initSize(sf::Texture* texture);
+//    void initSize(sf::Texture* texture);
 
     void update(int row, float deltaTime, bool faceRight, bool faceTop, bool moving);
     void attackAnimationFill();

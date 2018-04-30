@@ -122,6 +122,46 @@ SFMLDemo/fast:
 	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/build
 .PHONY : SFMLDemo/fast
 
+#=============================================================================
+# Target rules for targets named run
+
+# Build rule for target.
+run: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 run
+.PHONY : run
+
+# fast build rule for target.
+run/fast:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/build
+.PHONY : run/fast
+
+Animation.obj: Animation.cpp.obj
+
+.PHONY : Animation.obj
+
+# target to build an object file
+Animation.cpp.obj:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/Animation.cpp.obj
+.PHONY : Animation.cpp.obj
+
+Animation.i: Animation.cpp.i
+
+.PHONY : Animation.i
+
+# target to preprocess a source file
+Animation.cpp.i:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/Animation.cpp.i
+.PHONY : Animation.cpp.i
+
+Animation.s: Animation.cpp.s
+
+.PHONY : Animation.s
+
+# target to generate assembly for a file
+Animation.cpp.s:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/Animation.cpp.s
+.PHONY : Animation.cpp.s
+
 MoveButton.obj: MoveButton.cpp.obj
 
 .PHONY : MoveButton.obj
@@ -176,6 +216,33 @@ MoveMenu.cpp.s:
 	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.s
 .PHONY : MoveMenu.cpp.s
 
+character.obj: character.cpp.obj
+
+.PHONY : character.obj
+
+# target to build an object file
+character.cpp.obj:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/character.cpp.obj
+.PHONY : character.cpp.obj
+
+character.i: character.cpp.i
+
+.PHONY : character.i
+
+# target to preprocess a source file
+character.cpp.i:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/character.cpp.i
+.PHONY : character.cpp.i
+
+character.s: character.cpp.s
+
+.PHONY : character.s
+
+# target to generate assembly for a file
+character.cpp.s:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/character.cpp.s
+.PHONY : character.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -203,6 +270,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+move.obj: move.cpp.obj
+
+.PHONY : move.obj
+
+# target to build an object file
+move.cpp.obj:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/move.cpp.obj
+.PHONY : move.cpp.obj
+
+move.i: move.cpp.i
+
+.PHONY : move.i
+
+# target to preprocess a source file
+move.cpp.i:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/move.cpp.i
+.PHONY : move.cpp.i
+
+move.s: move.cpp.s
+
+.PHONY : move.s
+
+# target to generate assembly for a file
+move.cpp.s:
+	$(MAKE) -f CMakeFiles\SFMLDemo.dir\build.make CMakeFiles/SFMLDemo.dir/move.cpp.s
+.PHONY : move.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -210,17 +304,27 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... SFMLDemo
+	@echo ... run
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Animation.obj
+	@echo ... Animation.i
+	@echo ... Animation.s
 	@echo ... MoveButton.obj
 	@echo ... MoveButton.i
 	@echo ... MoveButton.s
 	@echo ... MoveMenu.obj
 	@echo ... MoveMenu.i
 	@echo ... MoveMenu.s
+	@echo ... character.obj
+	@echo ... character.i
+	@echo ... character.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... move.obj
+	@echo ... move.i
+	@echo ... move.s
 .PHONY : help
 
 

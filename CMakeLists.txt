@@ -16,7 +16,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 
 #find_package(SFML REQUIRED COMPONENTS system window graphics network audio)
 include_directories(${SFML_INCLUDE_DIR})
-add_executable(SFMLDemo main.cpp MoveButton.cpp MoveButton.h MoveMenu.cpp MoveMenu.h move.h move.cpp character.cpp character.h FillBar.h)
+add_executable(SFMLDemo main.cpp MoveButton.cpp MoveButton.h MoveMenu.cpp MoveMenu.h move.h move.cpp FillBar.h Animation.cpp Animation.h character.cpp character.h)
 target_link_libraries(SFMLDemo sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
 
 add_custom_target(run
