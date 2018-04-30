@@ -1,11 +1,14 @@
 #define _GLIBCXX_USE_CXX11_ABI 0
 #include <SFML/Graphics.hpp>
 #include <cmath>
-#include "character.h"
-#include "FillBar.h"
+
 //#include "MoveMenu.h"
 //#include <typeinfo>
+#include <string>
 #include <vector>
+
+#include "character.h"
+#include "FillBar.h"
 
 #define CHAR_SELECT_RADIUS 75
 #define CIRCLE_MENU_RADIUS 120
@@ -50,6 +53,9 @@ std::vector<FillBar> MPBars;
 sf::CircleShape playerHighlight;
 sf::RectangleShape turnIndicator;
 
+//sf::Font moveFont;
+//moveFont.loadFromFile("arial.ttf");
+
 int turn;
 
 int main() {
@@ -59,6 +65,9 @@ int main() {
     window.setKeyRepeatEnabled(false);
 
     std::vector<Move> ally1DefMoves;
+
+    //Move 1
+
     ally1DefMoves.push_back(Move("Shout", 10, 2));
     ally1DefMoves.push_back(Move("Heal", 10, 5));
     for (int i = 2; i < 8; ++i) {

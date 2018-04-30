@@ -217,6 +217,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+move.o: move.cpp.o
+
+.PHONY : move.o
+
+# target to build an object file
+move.cpp.o:
+	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/move.cpp.o
+.PHONY : move.cpp.o
+
+move.i: move.cpp.i
+
+.PHONY : move.i
+
+# target to preprocess a source file
+move.cpp.i:
+	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/move.cpp.i
+.PHONY : move.cpp.i
+
+move.s: move.cpp.s
+
+.PHONY : move.s
+
+# target to generate assembly for a file
+move.cpp.s:
+	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/move.cpp.s
+.PHONY : move.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -236,6 +263,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... move.o"
+	@echo "... move.i"
+	@echo "... move.s"
 .PHONY : help
 
 

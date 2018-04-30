@@ -3,7 +3,11 @@
 Move::Move() {
 	exists = false;
 }
+Move::Move(sf::Text movename, int type, int amount, int cd) {
+	//name = movename;
 
+}
+// Unused
 Move::Move(std::string movename, int dmgVal, int cdVal) {
 	name = movename;
 	damage = dmgVal;

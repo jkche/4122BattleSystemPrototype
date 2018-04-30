@@ -16,3 +16,6 @@ CMakeFiles/SFMLDemo.dir/main.cpp.o: character.h
 CMakeFiles/SFMLDemo.dir/main.cpp.o: main.cpp
 CMakeFiles/SFMLDemo.dir/main.cpp.o: move.h
 
+CMakeFiles/SFMLDemo.dir/move.cpp.o: move.cpp
+CMakeFiles/SFMLDemo.dir/move.cpp.o: move.h
+
