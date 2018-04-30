@@ -25,7 +25,7 @@ animation(imageCount, switchTime)
     // drawing.setSize(sf::Vector2f(100.0f,100.0f));
     // drawing.setPosition(100.0f,100.0f);
     // drawing.setTexture(texture);
-    drawing.setOrigin(50.0f, 50.0f);
+//    drawing.setOrigin(50.0f, 50.0f);
     nameOfSpriteSheet = name;
 }
 
