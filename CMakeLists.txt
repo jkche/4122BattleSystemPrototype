@@ -5,11 +5,6 @@ set(CMAKE_CX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -IC:/Users/justi_000/Desktop/SFML/include -LC:/Users/justi_000/Desktop/SFML/lib")
 
 set(SOURCE_FILES main.cpp)
-set(SOURCE_FILES move.h)
-set(SOURCE_FILES move.cpp)
-set(SOURCE_FILES character.h)
-set(SOURCE_FILES character.cpp)
-set(SOURCE_FILES FillBar.h)
 
 #set(EXECUTABLE_NAME "SFMLDemo")
 #add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
@@ -21,7 +16,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 
 #find_package(SFML REQUIRED COMPONENTS system window graphics network audio)
 include_directories(${SFML_INCLUDE_DIR})
-add_executable(SFMLDemo main.cpp MoveButton.cpp MoveButton.h MoveMenu.cpp MoveMenu.h move.h move.cpp)
+add_executable(SFMLDemo main.cpp MoveButton.cpp MoveButton.h MoveMenu.cpp MoveMenu.h move.h move.cpp character.cpp character.h FillBar.h)
 target_link_libraries(SFMLDemo sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
 
 add_custom_target(run

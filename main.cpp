@@ -59,20 +59,23 @@ sf::RectangleShape turnIndicator;
 int turn;
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(1920,1080), "SFML Tutorial", sf::Style::Close | sf::Style::Resize);
+	sf::RenderWindow window(sf::VideoMode(1920,1080), "Lonely Blade", sf::Style::Close | sf::Style::Resize);
 
     //Disable key repeat for mouse clicks
     window.setKeyRepeatEnabled(false);
 
     std::vector<Move> ally1DefMoves;
     //Move 1
-
+    ally1DefMoves.clear();
+    //std::cout << ally1DefMoves.size() << std::endl;
     //ally1DefMoves.push_back(Move("Shout", 10, 2));
     //ally1DefMoves.push_back(Move("Heal", 10, 5));
     for (int i = 0; i < 8; ++i) {
     	ally1DefMoves.push_back(Move());
     }
+    //std::cout << ally1DefMoves.size() << std::endl;
     std::vector<Move> ally1OffMoves;
+    ally1OffMoves.clear();
     //ally1OffMoves.push_back(Move("Slash", 10, 1));
     //ally1OffMoves.push_back(Move("Boomerang Blade", 50, 4));
     for (int i = 0; i < 8; ++i) {
@@ -94,8 +97,8 @@ int main() {
     for (int i = 0; i < allyteam.size(); ++i) {
 		HPBars.push_back(FillBar(allyteam[i].x, allyteam[i].y + allyteam[i].height + HP_BAR_OFFSET, 100, HP_BAR_HEIGHT, HPFillColor, HPBackColor, 0));
 		MPBars.push_back(FillBar(allyteam[i].x, allyteam[i].y + allyteam[i].height + HP_BAR_OFFSET + HP_BAR_HEIGHT + MP_BAR_OFFSET, 100, MP_BAR_HEIGHT, MPFillColor, MPBackColor, 0));
-		defMenus.push_back(MoveMenu(-1000.0f, -1000.0f, CIRCLE_MENU_RADIUS, ally1DefMoves));
-		offMenus.push_back(MoveMenu(-1000.0f, -1000.0f, CIRCLE_MENU_RADIUS, ally1OffMoves));
+		defMenus.push_back(MoveMenu(-1000.0f, -1000.0f, CIRCLE_MENU_RADIUS, allyteam[i].defenseMoves));
+		offMenus.push_back(MoveMenu(-1000.0f, -1000.0f, CIRCLE_MENU_RADIUS, allyteam[i].offenseMoves));
 	}
 	
 

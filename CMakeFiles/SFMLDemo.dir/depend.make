@@ -9,6 +9,12 @@ CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o: MoveMenu.cpp
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o: MoveMenu.h
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o: move.h
 
+CMakeFiles/SFMLDemo.dir/character.cpp.o: MoveButton.h
+CMakeFiles/SFMLDemo.dir/character.cpp.o: MoveMenu.h
+CMakeFiles/SFMLDemo.dir/character.cpp.o: character.cpp
+CMakeFiles/SFMLDemo.dir/character.cpp.o: character.h
+CMakeFiles/SFMLDemo.dir/character.cpp.o: move.h
+
 CMakeFiles/SFMLDemo.dir/main.cpp.o: FillBar.h
 CMakeFiles/SFMLDemo.dir/main.cpp.o: MoveButton.h
 CMakeFiles/SFMLDemo.dir/main.cpp.o: MoveMenu.h

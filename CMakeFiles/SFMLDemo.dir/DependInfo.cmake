@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.cpp" "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o"
   "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.cpp" "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o"
+  "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.cpp" "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir/character.cpp.o"
   "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/main.cpp" "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir/main.cpp.o"
   "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.cpp" "/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir/move.cpp.o"
   )

@@ -190,6 +190,33 @@ MoveMenu.cpp.s:
 	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.s
 .PHONY : MoveMenu.cpp.s
 
+character.o: character.cpp.o
+
+.PHONY : character.o
+
+# target to build an object file
+character.cpp.o:
+	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/character.cpp.o
+.PHONY : character.cpp.o
+
+character.i: character.cpp.i
+
+.PHONY : character.i
+
+# target to preprocess a source file
+character.cpp.i:
+	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/character.cpp.i
+.PHONY : character.cpp.i
+
+character.s: character.cpp.s
+
+.PHONY : character.s
+
+# target to generate assembly for a file
+character.cpp.s:
+	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/character.cpp.s
+.PHONY : character.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -260,6 +287,9 @@ help:
 	@echo "... MoveMenu.o"
 	@echo "... MoveMenu.i"
 	@echo "... MoveMenu.s"
+	@echo "... character.o"
+	@echo "... character.i"
+	@echo "... character.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
