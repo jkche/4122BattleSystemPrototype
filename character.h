@@ -36,6 +36,8 @@ public:
     sf::Vector2f getSize();
     void setOrigPos(sf::Vector2f coords);	//for x-distance calculations in updateAttack()
     sf::Vector2f getOrigPos();	//may be unnecessary
+    void setTargPos(sf::Vector2f coords);
+    sf::Vector2f getTargPos();
     void initAttack();	//fills animation vector of sprites for attack animation
 		
 private:
@@ -50,5 +52,5 @@ private:
 
     sf::Vector2f velocity;		//for map movement only; may not need
     sf::Vector2f origPos;	//for battle: calculations for moving char to enemy
-
+    sf::Vector2f targPos;
 };

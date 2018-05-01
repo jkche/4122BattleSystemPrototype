@@ -135,6 +135,16 @@ sf::Vector2f Character::getOrigPos() {
     return origPos;
 }
 
+//Use on-click
+void Character::setTargPos(sf::Vector2f coords){
+    targPos = coords;
+}
+
+
+sf::Vector2f Character::getTargPos() {
+    return targPos;
+}
+
 //Pushes animation sprites onto animation vector; see Animation.h
 void Character::initAttack() {
     animation.attackAnimationFill();

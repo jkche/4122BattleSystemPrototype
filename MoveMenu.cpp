@@ -29,7 +29,7 @@ MoveMenu::MoveMenu(float x, float y, float r, std::vector<Move> moves) {
         if (moves[i].exists == true) {
             //mButton = MoveButton(false);
             if (moves[i].textured) {
-                mButton = MoveButton(-100.0f,-100.0f, moves[i].texture, moves[i].texture2,2.0f,BUTTON_RADIUS);
+                mButton = MoveButton(-100.0f,-100.0f, moves[i].texture, moves[i].texture2,BUTTON_RADIUS);
             } else {
                 mButton = MoveButton(-100.0f,-100.0f,sf::Color::Green, sf::Color::Cyan,sf::Color::Yellow,2.0f,BUTTON_RADIUS);  //button off-center displacement already accounted for in MoveButton.cpp; hide buttons at init
             }

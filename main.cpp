@@ -155,7 +155,14 @@ int main() {
                     break;
                 case sf::Event::MouseButtonPressed:
                     if (battlePaused && turn < 3) {
-                        if (allySelect > -1 || enemySelect > -1) {
+                        if (enemySelect > -1) {
+                            if (moveSelect > -1) {
+                                battlePaused = false;
+                                allyteam[turn].setOrigPos(allyteam[turn].getPosition());
+                                allyteam[turn].setTargPos(enemyteam[enemySelect].getPosition()):
+                            }
+                        }
+                        if (allySelect > -1) {
                             if (moveSelect > -1) {
                                 battlePaused = false;
                             }
@@ -245,7 +252,7 @@ int main() {
             window.draw(playerHighlight);
             window.display();
         } else {
-
+            allyteam[turn].updateAttack()
         }
     }
 
