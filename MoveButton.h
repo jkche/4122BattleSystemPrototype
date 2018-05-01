@@ -25,7 +25,7 @@ public:
     MoveButton();
     MoveButton(bool);
     MoveButton(float,float,sf::Color,sf::Color,sf::Color,float,float);    //init x, y, fill color, outline color, outline thickness, radius
-    MoveButton(float,float,sf::Texture *,sf::Texture *,float);
+    MoveButton(float,float,sf::Texture *,sf::Texture *, float);
 
     //Get functions
     sf::CircleShape getAppearance();
