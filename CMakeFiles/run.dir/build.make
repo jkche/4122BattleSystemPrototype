@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem
+CMAKE_SOURCE_DIR = /mnt/c/Users/augus/Documents/ECE4122/BattleSystem
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem
+CMAKE_BINARY_DIR = /mnt/c/Users/augus/Documents/ECE4122/BattleSystem
 
 # Utility rule file for run.
 
@@ -71,6 +71,6 @@ CMakeFiles/run.dir/clean:
 .PHONY : CMakeFiles/run.dir/clean
 
 CMakeFiles/run.dir/depend:
-	cd /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/run.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/augus/Documents/ECE4122/BattleSystem && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/augus/Documents/ECE4122/BattleSystem /mnt/c/Users/augus/Documents/ECE4122/BattleSystem /mnt/c/Users/augus/Documents/ECE4122/BattleSystem /mnt/c/Users/augus/Documents/ECE4122/BattleSystem /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/run.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run.dir/depend
 

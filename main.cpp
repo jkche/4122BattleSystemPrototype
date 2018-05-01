@@ -2,6 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 
+#define CHAR_SELECT_RADIUS 75
+#define CIRCLE_MENU_RADIUS 100
+#define CHAR_DESELECT_RADIUS 170
+#define HP_BAR_OFFSET 10
+#define HP_BAR_HEIGHT 15
+#define MP_BAR_OFFSET 5
+#define MP_BAR_HEIGHT 10
+
 //#include "MoveMenu.h"
 //#include <typeinfo>
 //#include <string>
@@ -9,14 +17,6 @@
 
 #include "character.h"
 #include "FillBar.h"
-
-#define CHAR_SELECT_RADIUS 75
-#define CIRCLE_MENU_RADIUS 120
-#define CHAR_DESELECT_RADIUS 170
-#define HP_BAR_OFFSET 10
-#define HP_BAR_HEIGHT 15
-#define MP_BAR_OFFSET 5
-#define MP_BAR_HEIGHT 10
 
 
 float distanceFormula(float, float, float, float);
@@ -58,6 +58,7 @@ sf::RectangleShape turnIndicator;
 
 int turn;
 float deltaTime = 0.0f;
+bool battlePaused = true;
 
 int main() {
     sf::Clock clock;
@@ -67,20 +68,27 @@ int main() {
     //Disable key repeat for mouse clicks
     window.setKeyRepeatEnabled(false);
 
+
+    sf::Texture sword1;
+    sword1.loadFromFile("sword.png");
+    sf::Texture sword2;
+    sword2.loadFromFile("sword2.png");
+
+
     std::vector<Move> ally1DefMoves;
     //Move 1
     ally1DefMoves.clear();
     //std::cout << ally1DefMoves.size() << std::endl;
-    //ally1DefMoves.push_back(Move("Shout", 10, 2));
-    //ally1DefMoves.push_back(Move("Heal", 10, 5));
+    ally1DefMoves.push_back(Move("Shout", 10, 2, "Buff", "Cast"));
+    ally1DefMoves.push_back(Move("Heal", 10, 5, "Heal", "Cast"));
     for (int i = 0; i < 8; ++i) {
     	ally1DefMoves.push_back(Move());
     }
     //std::cout << ally1DefMoves.size() << std::endl;
     std::vector<Move> ally1OffMoves;
     ally1OffMoves.clear();
-    //ally1OffMoves.push_back(Move("Slash", 10, 1));
-    //ally1OffMoves.push_back(Move("Boomerang Blade", 50, 4));
+    ally1OffMoves.push_back(Move("Slash", 10, 1, "Attack", "Swing", &sword1, &sword2));
+    ally1OffMoves.push_back(Move("Boomerang Blade", 50, 4, "Attack", "Cast"));
     for (int i = 0; i < 8; ++i) {
     	ally1OffMoves.push_back(Move());
     }
@@ -145,88 +153,100 @@ int main() {
                 case sf::Event::Closed:
                     window.close();
                     break;
+                case sf::Event::MouseButtonPressed:
+                    if (battlePaused && turn < 3) {
+                        if (allySelect > -1 || enemySelect > -1) {
+                            if (moveSelect > -1) {
+                                battlePaused = false;
+                            }
+                        }
+                    }
+                    break;
             }
         }
+        if (battlePaused) {
+            if (turn < 3) {
+            	turnIndicator.setPosition(allyteam[turn].x + allyteam[turn].width/2 - 5, allyteam[turn].y - 20);
+            } else {
+            	turnIndicator.setPosition(enemyteam[turn - 3].x + enemyteam[turn - 3].width/2 - 5, enemyteam[turn - 3].y - 20);
+            }
 
-        if (turn < 3) {
-        	turnIndicator.setPosition(allyteam[turn].x + allyteam[turn].width/2 - 5, allyteam[turn].y - 20);
+
+            sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+            if (allySelect > -1) {
+            	allySelect = isHoveringAlly2(allySelect, mousePos);
+            }
+            if (enemySelect > -1) {
+            	enemySelect = isHoveringEnemy2(enemySelect, mousePos);
+            }
+            if (allySelect == -1 && enemySelect == -1) {
+            	allySelect = isHoveringAlly(mousePos);
+            	enemySelect = isHoveringEnemy(mousePos);
+            }
+            //allySelect = isHoveringAlly(mousePos);
+            //enemySelect = isHoveringEnemy(mousePos);
+            moveSelect = -1;
+            float circleCenterX = -1000.0f;
+            float circleCenterY = -1000.0f;
+            if (allySelect > -1) {
+            	circleCenterX = allyteam[allySelect].x + allyteam[allySelect].width/2 - playerHighlight.getRadius();
+            	circleCenterY =  allyteam[allySelect].y + allyteam[allySelect].height/2 - playerHighlight.getRadius();
+            	defMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
+            	offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+            	moveSelect = isHoveringMove(defMenus[turn], mousePos);
+            } else if (enemySelect > -1) {
+            	circleCenterX = enemyteam[enemySelect].x + enemyteam[enemySelect].width/2 - playerHighlight.getRadius();
+            	circleCenterY = enemyteam[enemySelect].y + enemyteam[enemySelect].height/2 - playerHighlight.getRadius();
+            	offMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
+            	defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+            	moveSelect = isHoveringMove(offMenus[turn], mousePos);
+            } else {
+            	defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+            	offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+            }
+            playerHighlight.setPosition(circleCenterX, circleCenterY);
+
+            window.clear();
+            for (int i = 0; i < allyteam.size(); ++i) {
+            	if (allyteam[i].alive) {
+    //	        	window.draw(allyteam[i].drawing);
+                    allyteam[i].updateAttack(deltaTime,enemyteam[0].getPosition(),false,15,2);
+                    allyteam[i].draw(window);
+    	        	HPBars[i].amount = allyteam[i].health/allyteam[i].maxhealth;
+    	        	HPBars[i].update();
+    	        	window.draw(HPBars[i].background);
+    	        	window.draw(HPBars[i].foreground);
+    	        	MPBars[i].amount = allyteam[i].mana/allyteam[i].maxmana;
+    	        	MPBars[i].update();
+    	        	window.draw(MPBars[i].background);
+    	        	window.draw(MPBars[i].foreground);
+    	        }
+            }
+            for (int i = 0; i < enemyteam.size(); ++i) {
+            	if (enemyteam[i].alive) {
+    //	        	window.draw(enemyteam[i].drawing);
+                    enemyteam[i].updateAttack(deltaTime,allyteam[0].getPosition(),false,15,2);
+                    enemyteam[i].draw(window);
+    	        	HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
+    	        	HPBars[i + allyteam.size()].update();
+    	        	window.draw(HPBars[i + allyteam.size()].background);
+    	        	window.draw(HPBars[i + allyteam.size()].foreground);
+    	        	MPBars[i + allyteam.size()].amount = enemyteam[i].mana/enemyteam[i].maxmana;
+    	        	MPBars[i + allyteam.size()].update();
+    	        	window.draw(MPBars[i + allyteam.size()].background);
+    	        	window.draw(MPBars[i + allyteam.size()].foreground);
+    	        }
+            }
+            for (int i = 0; i < 8; ++i) {
+            	window.draw(offMenus[turn].piMenu[i].getAppearance());
+            	window.draw(defMenus[turn].piMenu[i].getAppearance());
+            }
+            window.draw(turnIndicator);
+            window.draw(playerHighlight);
+            window.display();
         } else {
-        	turnIndicator.setPosition(enemyteam[turn - 3].x + enemyteam[turn - 3].width/2 - 5, enemyteam[turn - 3].y - 20);
-        }
 
-
-        sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-        if (allySelect > -1) {
-        	allySelect = isHoveringAlly2(allySelect, mousePos);
         }
-        if (enemySelect > -1) {
-        	enemySelect = isHoveringEnemy2(enemySelect, mousePos);
-        }
-        if (allySelect == -1 && enemySelect == -1) {
-        	allySelect = isHoveringAlly(mousePos);
-        	enemySelect = isHoveringEnemy(mousePos);
-        }
-        //allySelect = isHoveringAlly(mousePos);
-        //enemySelect = isHoveringEnemy(mousePos);
-        moveSelect = -1;
-        float circleCenterX = -1000.0f;
-        float circleCenterY = -1000.0f;
-        if (allySelect > -1) {
-        	circleCenterX = allyteam[allySelect].x + allyteam[allySelect].width/2 - playerHighlight.getRadius();
-        	circleCenterY =  allyteam[allySelect].y + allyteam[allySelect].height/2 - playerHighlight.getRadius();
-        	defMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
-        	offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-        	moveSelect = isHoveringMove(defMenus[turn], mousePos);
-        } else if (enemySelect > -1) {
-        	circleCenterX = enemyteam[enemySelect].x + enemyteam[enemySelect].width/2 - playerHighlight.getRadius();
-        	circleCenterY = enemyteam[enemySelect].y + enemyteam[enemySelect].height/2 - playerHighlight.getRadius();
-        	offMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
-        	defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-        	moveSelect = isHoveringMove(offMenus[turn], mousePos);
-        } else {
-        	defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-        	offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-        }
-        playerHighlight.setPosition(circleCenterX, circleCenterY);
-
-        window.clear();
-        for (int i = 0; i < allyteam.size(); ++i) {
-        	if (allyteam[i].alive) {
-//	        	window.draw(allyteam[i].drawing);
-                allyteam[i].updateAttack(deltaTime,enemyteam[0].getPosition(),false,15,2);
-                allyteam[i].draw(window);
-	        	HPBars[i].amount = allyteam[i].health/allyteam[i].maxhealth;
-	        	HPBars[i].update();
-	        	window.draw(HPBars[i].background);
-	        	window.draw(HPBars[i].foreground);
-	        	MPBars[i].amount = allyteam[i].mana/allyteam[i].maxmana;
-	        	MPBars[i].update();
-	        	window.draw(MPBars[i].background);
-	        	window.draw(MPBars[i].foreground);
-	        }
-        }
-        for (int i = 0; i < enemyteam.size(); ++i) {
-        	if (enemyteam[i].alive) {
-//	        	window.draw(enemyteam[i].drawing);
-                enemyteam[i].updateAttack(deltaTime,allyteam[0].getPosition(),false,15,2);
-                enemyteam[i].draw(window);
-	        	HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
-	        	HPBars[i + allyteam.size()].update();
-	        	window.draw(HPBars[i + allyteam.size()].background);
-	        	window.draw(HPBars[i + allyteam.size()].foreground);
-	        	MPBars[i + allyteam.size()].amount = enemyteam[i].mana/enemyteam[i].maxmana;
-	        	MPBars[i + allyteam.size()].update();
-	        	window.draw(MPBars[i + allyteam.size()].background);
-	        	window.draw(MPBars[i + allyteam.size()].foreground);
-	        }
-        }
-        for (int i = 0; i < 8; ++i) {
-        	window.draw(offMenus[turn].piMenu[i].getAppearance());
-        	window.draw(defMenus[turn].piMenu[i].getAppearance());
-        }
-        window.draw(turnIndicator);
-        window.draw(playerHighlight);
-        window.display();
     }
 
     return 0;
@@ -295,7 +315,7 @@ int isHoveringMove(MoveMenu &menu, sf::Vector2i mousePos) {
 	sf::Vector2f mousePosF(mousePos.x, mousePos.y);
 	for (int i = 0; i < 8; ++i) {
 		menu.piMenu[i].unhighlight();
-		if (vecDistanceFormula2(mousePosF, menu.piMenu[i].getCenter()) < menu.piMenu[i].radius * menu.piMenu[i].radius) {
+		if (menu.piMenu[i].active == true && vecDistanceFormula2(mousePosF, menu.piMenu[i].getCenter()) < menu.piMenu[i].radius * menu.piMenu[i].radius) {
 			menu.piMenu[i].highlight();
 			returnVal = i;
 		}

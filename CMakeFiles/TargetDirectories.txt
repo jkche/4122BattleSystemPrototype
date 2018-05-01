@@ -1,4 +1,4 @@
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/run.dir
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/edit_cache.dir
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/run.dir
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir

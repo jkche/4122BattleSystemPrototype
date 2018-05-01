@@ -18,22 +18,47 @@ MoveButton::MoveButton(float x, float y, sf::Color fillColor, sf::Color highligh
     appearance.setOutlineColor(outlineColor);
     appearance.setOutlineThickness(outlineThickness);
     radius = radiusIn;
+    textured = false;
 }
 
-MoveButton::MoveButton(bool active) {
+MoveButton::MoveButton(float x, float y, sf::Texture *fillTex, sf::Texture *highlightTex, float radiusIn) {
+    active = true;
+    appearance = sf::CircleShape(radiusIn);
+    //appearance.setPosition(x-radiusIn, y-radiusIn);
+    //color = fillColor;
+    //Hcolor = highlightColor;
+    texture = fillTex;
+    Htexture = highlightTex;
+    textured = true;
+    appearance.setTexture(texture);
+    //appearance.setFillColor(color);
+    //appearance.setOutlineColor(outlineColor);
+    //appearance.setOutlineThickness(outlineThickness);
+    radius = radiusIn;
+}
+
+MoveButton::MoveButton(bool isActive) {
     active = false;
     appearance = sf::CircleShape(30.0f);
-    radius = 30.0;
+    radius = 25.0;
     color = sf::Color(100,100,100,255);
-    Hcolor = sf::Color(100,100,100,255);
+    Hcolor = sf::Color(150,150,150,255);
 }
 
 void MoveButton::highlight() {
-    appearance.setFillColor(Hcolor);
+    if (textured) {
+        appearance.setTexture(Htexture);
+    } else {
+        appearance.setFillColor(Hcolor);
+    }
 }
 
 void MoveButton::unhighlight() {
-    appearance.setFillColor(color);
+    if (textured) {
+        appearance.setTexture(texture);
+    } else {
+        appearance.setFillColor(color);
+    }
 }
 
 sf::CircleShape MoveButton::getAppearance(){

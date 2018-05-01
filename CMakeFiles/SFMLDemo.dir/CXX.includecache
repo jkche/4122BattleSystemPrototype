@@ -6,63 +6,71 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/FillBar.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.cpp
+Animation.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.h
+
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.h
+SFML/Graphics.hpp
+-
+vector
+-
+
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/FillBar.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.cpp
 MoveButton.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.h
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.h
 SFML/Graphics.hpp
 -
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.cpp
 cmath
 -
 MoveMenu.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.h
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.h
 MoveButton.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.h
 move.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.h
 vector
 -
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.cpp
 character.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.h
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.h
 MoveMenu.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.h
 vector
 -
+Animation.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.h
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/main.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/main.cpp
 SFML/Graphics.hpp
 -
 cmath
 -
-string
--
-vector
--
 character.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.h
 FillBar.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/FillBar.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/FillBar.h
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.cpp
 move.h
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.h
 
-/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.h
 string
 -
 SFML/Graphics.hpp

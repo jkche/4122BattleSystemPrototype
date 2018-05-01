@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem
+CMAKE_SOURCE_DIR = /mnt/c/Users/augus/Documents/ECE4122/BattleSystem
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem
+CMAKE_BINARY_DIR = /mnt/c/Users/augus/Documents/ECE4122/BattleSystem
 
 # Include any dependencies generated for this target.
 include CMakeFiles/SFMLDemo.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/SFMLDemo.dir/flags.make
 
 CMakeFiles/SFMLDemo.dir/main.cpp.o: CMakeFiles/SFMLDemo.dir/flags.make
 CMakeFiles/SFMLDemo.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SFMLDemo.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/main.cpp.o -c /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SFMLDemo.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/main.cpp.o -c /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/main.cpp
 
 CMakeFiles/SFMLDemo.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/main.cpp > CMakeFiles/SFMLDemo.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/main.cpp > CMakeFiles/SFMLDemo.dir/main.cpp.i
 
 CMakeFiles/SFMLDemo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/main.cpp -o CMakeFiles/SFMLDemo.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/main.cpp -o CMakeFiles/SFMLDemo.dir/main.cpp.s
 
 CMakeFiles/SFMLDemo.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/SFMLDemo.dir/main.cpp.o.provides.build: CMakeFiles/SFMLDemo.dir/main.
 
 CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o: CMakeFiles/SFMLDemo.dir/flags.make
 CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o: MoveButton.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o -c /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o -c /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.cpp
 
 CMakeFiles/SFMLDemo.dir/MoveButton.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/MoveButton.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.cpp > CMakeFiles/SFMLDemo.dir/MoveButton.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.cpp > CMakeFiles/SFMLDemo.dir/MoveButton.cpp.i
 
 CMakeFiles/SFMLDemo.dir/MoveButton.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/MoveButton.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveButton.cpp -o CMakeFiles/SFMLDemo.dir/MoveButton.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.cpp -o CMakeFiles/SFMLDemo.dir/MoveButton.cpp.s
 
 CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o.provides.build: CMakeFiles/SFMLDemo.dir
 
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o: CMakeFiles/SFMLDemo.dir/flags.make
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o: MoveMenu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o -c /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o -c /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.cpp
 
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.cpp > CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.cpp > CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.i
 
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/MoveMenu.cpp -o CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.cpp -o CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.s
 
 CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o.provides.build: CMakeFiles/SFMLDemo.dir/M
 
 CMakeFiles/SFMLDemo.dir/move.cpp.o: CMakeFiles/SFMLDemo.dir/flags.make
 CMakeFiles/SFMLDemo.dir/move.cpp.o: move.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SFMLDemo.dir/move.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/move.cpp.o -c /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SFMLDemo.dir/move.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/move.cpp.o -c /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.cpp
 
 CMakeFiles/SFMLDemo.dir/move.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/move.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.cpp > CMakeFiles/SFMLDemo.dir/move.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.cpp > CMakeFiles/SFMLDemo.dir/move.cpp.i
 
 CMakeFiles/SFMLDemo.dir/move.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/move.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/move.cpp -o CMakeFiles/SFMLDemo.dir/move.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.cpp -o CMakeFiles/SFMLDemo.dir/move.cpp.s
 
 CMakeFiles/SFMLDemo.dir/move.cpp.o.requires:
 
@@ -153,18 +153,42 @@ CMakeFiles/SFMLDemo.dir/move.cpp.o.provides: CMakeFiles/SFMLDemo.dir/move.cpp.o.
 CMakeFiles/SFMLDemo.dir/move.cpp.o.provides.build: CMakeFiles/SFMLDemo.dir/move.cpp.o
 
 
+CMakeFiles/SFMLDemo.dir/Animation.cpp.o: CMakeFiles/SFMLDemo.dir/flags.make
+CMakeFiles/SFMLDemo.dir/Animation.cpp.o: Animation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SFMLDemo.dir/Animation.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/Animation.cpp.o -c /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.cpp
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/Animation.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.cpp > CMakeFiles/SFMLDemo.dir/Animation.cpp.i
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/Animation.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.cpp -o CMakeFiles/SFMLDemo.dir/Animation.cpp.s
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.o.requires:
+
+.PHONY : CMakeFiles/SFMLDemo.dir/Animation.cpp.o.requires
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.o.provides: CMakeFiles/SFMLDemo.dir/Animation.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SFMLDemo.dir/build.make CMakeFiles/SFMLDemo.dir/Animation.cpp.o.provides.build
+.PHONY : CMakeFiles/SFMLDemo.dir/Animation.cpp.o.provides
+
+CMakeFiles/SFMLDemo.dir/Animation.cpp.o.provides.build: CMakeFiles/SFMLDemo.dir/Animation.cpp.o
+
+
 CMakeFiles/SFMLDemo.dir/character.cpp.o: CMakeFiles/SFMLDemo.dir/flags.make
 CMakeFiles/SFMLDemo.dir/character.cpp.o: character.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SFMLDemo.dir/character.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/character.cpp.o -c /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SFMLDemo.dir/character.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SFMLDemo.dir/character.cpp.o -c /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.cpp
 
 CMakeFiles/SFMLDemo.dir/character.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SFMLDemo.dir/character.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.cpp > CMakeFiles/SFMLDemo.dir/character.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.cpp > CMakeFiles/SFMLDemo.dir/character.cpp.i
 
 CMakeFiles/SFMLDemo.dir/character.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SFMLDemo.dir/character.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/character.cpp -o CMakeFiles/SFMLDemo.dir/character.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.cpp -o CMakeFiles/SFMLDemo.dir/character.cpp.s
 
 CMakeFiles/SFMLDemo.dir/character.cpp.o.requires:
 
@@ -183,6 +207,7 @@ SFMLDemo_OBJECTS = \
 "CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o" \
 "CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o" \
 "CMakeFiles/SFMLDemo.dir/move.cpp.o" \
+"CMakeFiles/SFMLDemo.dir/Animation.cpp.o" \
 "CMakeFiles/SFMLDemo.dir/character.cpp.o"
 
 # External object files for target SFMLDemo
@@ -192,10 +217,11 @@ SFMLDemo: CMakeFiles/SFMLDemo.dir/main.cpp.o
 SFMLDemo: CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o
 SFMLDemo: CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o
 SFMLDemo: CMakeFiles/SFMLDemo.dir/move.cpp.o
+SFMLDemo: CMakeFiles/SFMLDemo.dir/Animation.cpp.o
 SFMLDemo: CMakeFiles/SFMLDemo.dir/character.cpp.o
 SFMLDemo: CMakeFiles/SFMLDemo.dir/build.make
 SFMLDemo: CMakeFiles/SFMLDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SFMLDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SFMLDemo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SFMLDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -207,6 +233,7 @@ CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/main.cpp.o.requires
 CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o.requires
 CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o.requires
 CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/move.cpp.o.requires
+CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/Animation.cpp.o.requires
 CMakeFiles/SFMLDemo.dir/requires: CMakeFiles/SFMLDemo.dir/character.cpp.o.requires
 
 .PHONY : CMakeFiles/SFMLDemo.dir/requires
@@ -216,6 +243,6 @@ CMakeFiles/SFMLDemo.dir/clean:
 .PHONY : CMakeFiles/SFMLDemo.dir/clean
 
 CMakeFiles/SFMLDemo.dir/depend:
-	cd /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem /mnt/c/Users/Augustine/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/augus/Documents/ECE4122/BattleSystem && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/augus/Documents/ECE4122/BattleSystem /mnt/c/Users/augus/Documents/ECE4122/BattleSystem /mnt/c/Users/augus/Documents/ECE4122/BattleSystem /mnt/c/Users/augus/Documents/ECE4122/BattleSystem /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/SFMLDemo.dir/depend
 

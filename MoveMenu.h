@@ -5,6 +5,9 @@
 #ifndef SFMLDEMO_MOVEMENU_H
 #define SFMLDEMO_MOVEMENU_H
 
+
+#define BUTTON_RADIUS 25
+
 #include "MoveButton.h"
 #include "move.h"
 #include <vector>
