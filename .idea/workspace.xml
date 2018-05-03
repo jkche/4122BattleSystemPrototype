@@ -13,26 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77ff3908-fcd8-4ecd-a210-d51a993c4e6b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/1" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/4" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/5" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/6" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/7" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/count.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj" afterPath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/character.cpp.obj" afterPath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/character.cpp.obj" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/main.cpp.obj" afterPath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/main.cpp.obj" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/move.cpp.obj" afterPath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/move.cpp.obj" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/objects.a" afterPath="$PROJECT_DIR$/CMakeFiles/SFMLDemo.dir/objects.a" />
       <change beforePath="$PROJECT_DIR$/SFMLDemo.exe" afterPath="$PROJECT_DIR$/SFMLDemo.exe" />
-      <change beforePath="$PROJECT_DIR$/character.cpp" afterPath="$PROJECT_DIR$/character.cpp" />
-      <change beforePath="$PROJECT_DIR$/character.h" afterPath="$PROJECT_DIR$/character.h" />
       <change beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change beforePath="$PROJECT_DIR$/move.cpp" afterPath="$PROJECT_DIR$/move.cpp" />
-      <change beforePath="$PROJECT_DIR$/move.h" afterPath="$PROJECT_DIR$/move.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
@@ -59,8 +41,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1474">
-              <caret line="340" column="13" lean-forward="false" selection-start-line="340" selection-start-column="13" selection-end-line="340" selection-end-column="13" />
+            <state relative-caret-position="497">
+              <caret line="337" column="28" lean-forward="false" selection-start-line="337" selection-start-column="28" selection-end-line="337" selection-end-column="28" />
               <folding>
                 <element signature="e#363#385#0" expanded="true" />
               </folding>
@@ -299,12 +281,12 @@
       <workItem from="1525311573934" duration="9772000" />
       <workItem from="1525328175154" duration="117000" />
       <workItem from="1525328313151" duration="291000" />
-      <workItem from="1525329827702" duration="22704000" />
+      <workItem from="1525329827702" duration="23283000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96396000" />
+    <option name="totallyTimeSpent" value="96975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -766,8 +748,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1474">
-          <caret line="340" column="13" lean-forward="false" selection-start-line="340" selection-start-column="13" selection-end-line="340" selection-end-column="13" />
+        <state relative-caret-position="497">
+          <caret line="337" column="28" lean-forward="false" selection-start-line="337" selection-start-column="28" selection-end-line="337" selection-end-column="28" />
           <folding>
             <element signature="e#363#385#0" expanded="true" />
           </folding>

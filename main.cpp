@@ -132,6 +132,22 @@ int main() {
 
     std::vector<Move> enemy1DefMoves;
     std::vector<Move> enemy1OffMoves;
+
+
+    //Move 1
+    enemy1DefMoves.clear();
+    //std::cout << ally1DefMoves.size() << std::endl;
+    enemy1DefMoves.push_back(Move("Heal", 10, 5, 1, "Cast"));
+    for (int i = 0; i < 8; ++i) {
+        enemy1DefMoves.push_back(Move());
+    }
+    //std::cout << ally1DefMoves.size() << std::endl;
+    enemy1OffMoves.clear();
+    enemy1OffMoves.push_back(Move("Slash", 10, 1, 0, "Swing", &sword1, &sword2));
+    for (int i = 0; i < 8; ++i) {
+        enemy1OffMoves.push_back(Move());
+    }
+
     enemyteam.push_back(Character(enemy1Xpos, Ystart, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
     enemyteam.back().setPartyNumber(enemyteam.size()-1);
     enemyteam.push_back(Character(enemy1Xpos - Xoffset, Ystart + Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
@@ -319,10 +335,13 @@ int main() {
         for (int i = 0; i < enemyteam.size(); ++i) {
             if (enemyteam[i].alive) {
 //	        	window.draw(enemyteam[i].drawing);
-//                if(enemyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, &battlePaused)){
-//                    battlePaused = true;
-//                    turn++;
-//                }
+                if(enemyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, &battlePaused)){
+                    battlePaused = true;
+                    printf("\nturn: %i\n",turn);
+                    if(turn++ > 5){
+                        turn = 0;
+                    }
+                }
                 enemyteam[i].draw(window);
                 HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
                 HPBars[i + allyteam.size()].update();
@@ -334,8 +353,8 @@ int main() {
                 window.draw(MPBars[i + allyteam.size()].foreground);
             }
         }
-        for (int i = 0; i < 8; ++i) {
-            if(turn < 3) {
+        if(turn < 3){
+            for (int i = 0; i < 8; ++i) {
                 window.draw(offMenus[turn].piMenu[i].getAppearance());
                 window.draw(defMenus[turn].piMenu[i].getAppearance());
             }
