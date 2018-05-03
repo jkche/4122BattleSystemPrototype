@@ -97,6 +97,7 @@ void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         drawing.setPosition(origPos);
         isSelect = false;   //finish updateAttacking
         *battlePaused = true;   //complete battle animation
+        printf("\nBattle animation ended; reset\n");
     }
     moving = false;
     //animation and movement
