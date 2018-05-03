@@ -58,7 +58,7 @@ sf::RectangleShape turnIndicator;
 
 int turn;
 float deltaTime = 0.0f;
-float frameSpeed = 1000.0f;
+float frameSpeed = 7500.0f;
 bool battlePaused = true;
 
 
@@ -290,7 +290,7 @@ int main() {
         for (int i = 0; i < allyteam.size(); ++i) {
             if (allyteam[i].alive) {
 //    	        	window.draw(allyteam[i].drawing);
-                allyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, battlePaused);
+                allyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, &battlePaused);
                 allyteam[i].draw(window);
                 HPBars[i].amount = allyteam[i].health/allyteam[i].maxhealth;
                 HPBars[i].update();
@@ -305,7 +305,7 @@ int main() {
         for (int i = 0; i < enemyteam.size(); ++i) {
             if (enemyteam[i].alive) {
 //	        	window.draw(enemyteam[i].drawing);
-                enemyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, battlePaused);
+                enemyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, &battlePaused);
                 enemyteam[i].draw(window);
                 HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
                 HPBars[i + allyteam.size()].update();
