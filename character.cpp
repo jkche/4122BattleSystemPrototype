@@ -70,7 +70,7 @@ void Character::update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f orig
 }
 
 //For movement and animation in battle
-void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime){   //total animation time ~ 25 deltaTimes
+void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime, bool* battlePaused){   //total animation time ~ 25 deltaTimes
     float xVel = (enemyPos.x - origPos.x)/(moveTime); //moving forward and back takes moveTime seconds
     if(enemyPos.x -100 > getPosition().x && isAttack) {	//Char is moving to target
         moving = true;
@@ -96,6 +96,7 @@ void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         velocity.y = 0.0f;
         drawing.setPosition(origPos);
         isSelect = false;   //finish updateAttacking
+        *battlePaused = true;   //complete battle animation
     }
     moving = false;
     //animation and movement
@@ -152,7 +153,7 @@ void Character::movementUpdate(float deltaTime, float attackTimer, float* frameC
         if(*frameCounter < attackTimer && isAttacking){
             *frameCounter += deltaTime;
             printf("\nFrameCounter incremented\n");
-            updateAttack(deltaTime, target->getPosition(), *frameCounter < attackTimer / 2, attackTimer, 1);
+            updateAttack(deltaTime, target->getPosition(), *frameCounter < attackTimer / 2, attackTimer, 1, battlePaused);
             printf("\nAttack animation updated\n");
         }else if(isAttacking) {
             *frameCounter -= attackTimer;

@@ -31,7 +31,7 @@ public:
 //    ~Character();
     void update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f origPos, bool isAttack);    //may not need; mostly for idle animation
     void draw(sf::RenderWindow& window);	//draws char to window
-    void updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime);
+    void updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime, bool* battlePaused);
     //animation updates to attack; isAttack = char attacking? or retreating (T/F); attackTimer = attack animation total time, seconds; moveTime = amt of time character takes to move to target
     sf::Vector2f getPosition();
     sf::Vector2f getSize();
