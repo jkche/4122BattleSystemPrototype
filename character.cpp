@@ -70,7 +70,8 @@ void Character::update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f orig
 }
 
 //For movement and animation in battle
-void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime, bool* battlePaused){   //total animation time ~ 25 deltaTimes
+bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime, bool* battlePaused, float* frameCounter){   //total animation time ~ 25 deltaTimes
+    bool skillDone = false;
     float xVel = (enemyPos.x - origPos.x)/(moveTime); //moving forward and back takes moveTime seconds
     if(enemyPos.x -100 > getPosition().x && isAttack) {	//Char is moving to target
         moving = true;
@@ -104,14 +105,19 @@ void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         velocity.y = 0.0f;
         drawing.setPosition(origPos);
         isSelect = false;   //finish updateAttacking
-        *battlePaused = true;   //complete battle animation
+//        *battlePaused = true;   //complete battle animation
+        if(*frameCounter >= attackTimer){
+            *frameCounter -= attackTimer;
+        }
         printf("\nBattle animation ended; reset\n");
+        skillDone = true;
     }
     moving = false;
     //animation and movement
     animation.updateAttack(deltaTime, isAttack, moving, attackTimer/2 - moveTime);
     drawing.setTextureRect(animation.uvRect);
     drawing.move(velocity*deltaTime);
+    return skillDone;
 }
 
 //Draw char to window
@@ -150,7 +156,8 @@ void Character::setPartyNumber(int num) {
     partyNum = num;
 }
 
-void Character::movementUpdate(float deltaTime, float attackTimer, float* frameCounter, bool* battlePaused){    //TO DO: Update to check for move selected; change animation based on move
+bool Character::movementUpdate(float deltaTime, float attackTimer, float* frameCounter, bool* battlePaused){    //TO DO: Update to check for move selected; change animation based on move
+    bool skillDone = false;
     if(!*(battlePaused) && isSelect){
 //        printf("\nDeltaTime: %f\n",deltaTime);
         if(target->isSelected) { //attack initiated
@@ -162,7 +169,7 @@ void Character::movementUpdate(float deltaTime, float attackTimer, float* frameC
         if(*frameCounter < attackTimer && isAttacking){
             *frameCounter += deltaTime;
             printf("\nFrameCounter incremented\n");
-            updateAttack(deltaTime, target->getPosition(), *frameCounter < attackTimer / 2, attackTimer, 1, battlePaused);
+            skillDone = updateAttack(deltaTime, target->getPosition(), *frameCounter < attackTimer / 2, attackTimer, 1, battlePaused, frameCounter);
             printf("\nAttack animation updated\n");
         }else if(isAttacking) {
             *frameCounter -= attackTimer;
@@ -172,6 +179,7 @@ void Character::movementUpdate(float deltaTime, float attackTimer, float* frameC
     }else {
         update(deltaTime, sf::Vector2f(0.0f, 0.0f), sf::Vector2f(0.0f, 0.0f), false);
     }
+    return skillDone;
 }
 
 int Character::getPartyNum() {
