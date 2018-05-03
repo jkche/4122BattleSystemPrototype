@@ -60,9 +60,13 @@ int turn;
 float deltaTime = 0.0f;
 bool battlePaused = true;
 
+
 int main() {
     sf::Clock clock;
     deltaTime = clock.restart().asSeconds();
+//battle frame vars
+    float attackTimer = 6;
+    float frameCounter = 0.0f;
 	sf::RenderWindow window(sf::VideoMode(1920,1080), "Lonely Blade", sf::Style::Close | sf::Style::Resize);
 
     //Disable key repeat for mouse clicks
@@ -98,11 +102,14 @@ int main() {
     sf::Texture textureTest;
     textureTest.loadFromFile("player.png");
 
-//    Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves, std::string name, sf::Vector2u imageCount, float switchTime, float speed);
+    //set party number for specific member turn check--useful for member and target select
     allyteam.push_back(Character(ally1Xpos, Ystart, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
     //allyteam.push_back(Character(false));
+    allyteam.back().setPartyNumber(allyteam.size()-1);
     allyteam.push_back(Character(ally1Xpos + Xoffset, Ystart + Ygap, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    allyteam.back().setPartyNumber(allyteam.size()-1);
     allyteam.push_back(Character(ally1Xpos, Ystart + 2 * Ygap, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    allyteam.back().setPartyNumber(allyteam.size()-1);
     
     std::vector<MoveMenu> defMenus;
     std::vector<MoveMenu> offMenus;
@@ -123,8 +130,11 @@ int main() {
     std::vector<Move> enemy1DefMoves;
     std::vector<Move> enemy1OffMoves;
     enemyteam.push_back(Character(enemy1Xpos, Ystart, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    enemyteam.back().setPartyNumber(enemyteam.size()-1);
     enemyteam.push_back(Character(enemy1Xpos - Xoffset, Ystart + Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    enemyteam.back().setPartyNumber(enemyteam.size()-1);
     enemyteam.push_back(Character(enemy1Xpos, Ystart + 2 * Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    enemyteam.back().setPartyNumber(enemyteam.size()-1);
 
     for (int i = 0; i < enemyteam.size(); ++i) {
 		HPBars.push_back(FillBar(enemyteam[i].x, enemyteam[i].y + enemyteam[i].height + HP_BAR_OFFSET, 100, HP_BAR_HEIGHT, HPFillColor, HPBackColor, 0));
@@ -183,8 +193,6 @@ int main() {
             	allySelect = isHoveringAlly(mousePos);
             	enemySelect = isHoveringEnemy(mousePos);
             }
-            //allySelect = isHoveringAlly(mousePos);
-            //enemySelect = isHoveringEnemy(mousePos);
             moveSelect = -1;
             float circleCenterX = -1000.0f;
             float circleCenterY = -1000.0f;
@@ -210,7 +218,7 @@ int main() {
             for (int i = 0; i < allyteam.size(); ++i) {
             	if (allyteam[i].alive) {
     //	        	window.draw(allyteam[i].drawing);
-                    allyteam[i].updateAttack(deltaTime,enemyteam[0].getPosition(),false,15,2);
+                    allyteam[i].movementUpdate(deltaTime,attackTimer, &frameCounter);
                     allyteam[i].draw(window);
     	        	HPBars[i].amount = allyteam[i].health/allyteam[i].maxhealth;
     	        	HPBars[i].update();
@@ -225,7 +233,7 @@ int main() {
             for (int i = 0; i < enemyteam.size(); ++i) {
             	if (enemyteam[i].alive) {
     //	        	window.draw(enemyteam[i].drawing);
-                    enemyteam[i].updateAttack(deltaTime,allyteam[0].getPosition(),false,15,2);
+                    allyteam[i].movementUpdate(deltaTime,attackTimer, &frameCounter);
                     enemyteam[i].draw(window);
     	        	HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
     	        	HPBars[i + allyteam.size()].update();

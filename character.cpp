@@ -139,3 +139,25 @@ sf::Vector2f Character::getOrigPos() {
 void Character::initAttack() {
     animation.attackAnimationFill();
 }
+
+void Character::setPartyNumber(int num) {
+    partyNum = num;
+}
+
+void Character::movementUpdate(float deltaTime, float attackTimer, float* frameCounter){
+    if(isSelect && target->isSelected) { //attack initiated
+        isSelect = false;
+        target->isSelected = false;
+        printf("\nAttack initiated\n");
+        isAttacking = true;
+    }
+    if(*frameCounter < attackTimer && isAttacking){
+        *frameCounter += deltaTime;
+        updateAttack(deltaTime, target->getPosition(), *frameCounter < attackTimer / 2, attackTimer, 1);
+    }else if(isAttacking){
+        *frameCounter -= attackTimer;
+        isAttacking = false;
+    }else {
+        update(deltaTime, sf::Vector2f(0.0f, 0.0f), sf::Vector2f(0.0f, 0.0f), false);
+    }
+}

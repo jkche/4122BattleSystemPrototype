@@ -37,6 +37,9 @@ public:
     void setOrigPos(sf::Vector2f coords);	//for x-distance calculations in updateAttack()
     sf::Vector2f getOrigPos();	//may be unnecessary
     void initAttack();	//fills animation vector of sprites for attack animation
+    void setPartyNumber(int num);
+    void movementUpdate(float deltaTime, float attackTimer, float* frameCounter);
+
 		
 private:
     //sf::RectangleShape body;
@@ -50,5 +53,13 @@ private:
 
     sf::Vector2f velocity;		//for map movement only; may not need
     sf::Vector2f origPos;	//for battle: calculations for moving char to enemy
+    int partyNum;   //char position in vector
 
+    //vars for updating battle animations
+public:
+    bool isSelect;      //is char targeting another char?
+    bool isAttacking;   //is char executing attack animation?
+    bool isSelected;    //is char target of another char?
+private:
+    Character* target;  //target
 };
