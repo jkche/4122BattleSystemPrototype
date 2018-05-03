@@ -1,4 +1,4 @@
-/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/edit_cache.dir
-/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/run.dir
-/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/CMakeFiles/SFMLDemo.dir
+C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/CMakeFiles/SFMLDemo.dir
+C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/CMakeFiles/run.dir
+C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/CMakeFiles/edit_cache.dir
+C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/CMakeFiles/rebuild_cache.dir

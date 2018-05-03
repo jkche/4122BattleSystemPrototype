@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2017.3.2\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE= -G "CodeBlocks - MinGW Makefiles" C:\Users\justi_000\Desktop\GaTech\Spring2018\4122\SFMLDemo
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo

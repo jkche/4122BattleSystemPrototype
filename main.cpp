@@ -165,6 +165,21 @@ int main() {
                     break;
                 case sf::Event::MouseButtonPressed:
                     if (battlePaused && turn < 3) {
+                        if(allySelect > -1) {                 //ally selection paths
+                            if (allyteam[allySelect].isSelect && moveSelect > -1 && enemySelect > -1) {
+                                if (!enemyteam[enemySelect].isSelect)   //ally has chosen move, targets enemy
+                                    allyteam[allySelect].setTarget(&enemyteam[enemySelect]);
+                            } else if (!allyteam[allySelect].isSelect && enemySelect <= -1) {   //ally selected
+                                allyteam[allySelect].isSelect = true;
+                            }
+                        }else if(enemySelect > -1) {                 //enemy selection paths
+                            if (enemyteam[enemySelect].isSelect && moveSelect > -1 && allySelect > -1) {     //enemy has chosen move, targets ally
+                                if (!allyteam[allySelect].isSelect)   //enemy targets ally
+                                    enemyteam[enemySelect].setTarget(&allyteam[allySelect]);
+                            } else if (!enemyteam[enemySelect].isSelect && allySelect <= -1) {   //enemy selected
+                                enemyteam[enemySelect].isSelect = true;
+                            }
+                        }
                         if (allySelect > -1 || enemySelect > -1) {
                             if (moveSelect > -1) {
                                 battlePaused = false;

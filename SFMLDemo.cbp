@@ -92,6 +92,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/Animation.cpp">
+			<Option target="SFMLDemo"/>
+		</Unit>
+		<Unit filename="C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/Animation.h">
+			<Option target="SFMLDemo"/>
+		</Unit>
+		<Unit filename="C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/FillBar.h">
+			<Option target="SFMLDemo"/>
+		</Unit>
 		<Unit filename="C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveButton.cpp">
 			<Option target="SFMLDemo"/>
 		</Unit>
@@ -102,6 +111,12 @@
 			<Option target="SFMLDemo"/>
 		</Unit>
 		<Unit filename="C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveMenu.h">
+			<Option target="SFMLDemo"/>
+		</Unit>
+		<Unit filename="C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/character.cpp">
+			<Option target="SFMLDemo"/>
+		</Unit>
+		<Unit filename="C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/character.h">
 			<Option target="SFMLDemo"/>
 		</Unit>
 		<Unit filename="C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/main.cpp">

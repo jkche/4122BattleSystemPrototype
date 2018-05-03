@@ -60,6 +60,8 @@ public:
     bool isSelect;      //is char targeting another char?
     bool isAttacking;   //is char executing attack animation?
     bool isSelected;    //is char target of another char?
+	int getPartyNum();
+    void setTarget(Character* target);
 private:
     Character* target;  //target
 };

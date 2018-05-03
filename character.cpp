@@ -1,7 +1,7 @@
 #include "character.h"
 Character::Character(bool dead, sf::Texture *texture):
     animation(texture, sf::Vector2u(0,0),0.0f) {
-    alive = selected = faceRight = faceTop = moving = false;
+    alive = selected = faceRight = faceTop = moving = isSelect = isSelected = false;
     health = maxhealth = mana = maxmana = attackTimer = speed = 0.0f;
     x = y = row = 0;
 
@@ -35,6 +35,10 @@ animation(texture, imageCount, switchTime)
      drawing.setTexture(texture);
 //    drawing.setOrigin(50.0f, 50.0f);
 //    nameOfSpriteSheet = name;
+
+    //init battle targeting vars
+    isSelect = false;
+    isSelected = false;
 }
 
 //void Character::initTexture(sf::Texture* texture){
@@ -136,7 +140,7 @@ sf::Vector2f Character::getOrigPos() {
 }
 
 //Pushes animation sprites onto animation vector; see Animation.h
-void Character::initAttack() {
+void Character::initAttack() {  //TO DO: Update to fill with move-specific animations
     animation.attackAnimationFill();
 }
 
@@ -144,7 +148,7 @@ void Character::setPartyNumber(int num) {
     partyNum = num;
 }
 
-void Character::movementUpdate(float deltaTime, float attackTimer, float* frameCounter){
+void Character::movementUpdate(float deltaTime, float attackTimer, float* frameCounter){    //TO DO: Update to check for move selected; change animation based on move
     if(isSelect && target->isSelected) { //attack initiated
         isSelect = false;
         target->isSelected = false;
@@ -160,4 +164,14 @@ void Character::movementUpdate(float deltaTime, float attackTimer, float* frameC
     }else {
         update(deltaTime, sf::Vector2f(0.0f, 0.0f), sf::Vector2f(0.0f, 0.0f), false);
     }
+}
+
+int Character::getPartyNum() {
+    return partyNum;
+}
+
+void Character::setTarget(Character *target) {  //POSSIBLE TO DO: Update to handle move-specific animations
+    this->target = target;
+    target->isSelected = true;
+    initAttack();
 }
