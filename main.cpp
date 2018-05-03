@@ -1,6 +1,7 @@
 //#define _GLIBCXX_USE_CXX11_ABI 0
 #include <SFML/Graphics.hpp>
 #include <cmath>
+#include <stdlib.h>
 
 #define CHAR_SELECT_RADIUS 75
 #define CIRCLE_MENU_RADIUS 100
@@ -58,9 +59,10 @@ sf::RectangleShape turnIndicator;
 
 int turn;
 float deltaTime = 0.0f;
-float frameSpeed = 7500.0f;
+float frameSpeed = 75000.0f;
 bool battlePaused = true;
-
+bool win = false;
+bool lose = false;
 
 int main() {
     sf::Clock clock;
@@ -206,6 +208,7 @@ int main() {
                                 enemyteam[i].isSelect = false;
                             }
                             enemyteam[turn-3].isSelect = true;
+                            /*
                             if(enemySelect > -1 && moveSelect > -1){    //target enemy; use defensive moves
                                 enemyteam[turn-3].setTarget(&enemyteam[enemySelect],moveSelect,enemy1DefMoves);
                                 battlePaused = false;
@@ -215,8 +218,13 @@ int main() {
                                 battlePaused = false;
                                 printf("\nBattle unpaused; enemy defending\n");
                             }
-
-                        }
+                            */
+                            int randTarget = rand() % 3;
+                            int moveToUse = 0;
+                            enemyteam[turn - 3].setTarget(&allyteam[randTarget], moveToUse, enemy1OffMoves);
+                            battlePaused = false;
+                            printf("\nBattle unpaused; enemy attacking\n");
+                        }   
 
                     }
 
@@ -224,6 +232,31 @@ int main() {
             }
         }
         if (battlePaused) {
+            lose = true;
+            win = true;
+            for (int i = 0; i < 3; ++i) {
+                if (allyteam[i].alive == true) {
+                    lose = false;
+                }
+            }
+            lose = true;
+            for (int i = 0; i < 3; ++i) {
+                if (enemyteam[i].alive == true) {
+                    win = false;
+                }
+            }
+
+            while (turn < 3 && allyteam[turn].alive == false) {
+                turn++;
+            }
+            while (turn >=3 && turn < 6 && enemyteam[turn - 3].alive == false) {
+                if (++turn > 5) {
+                    turn = 0;
+                    allySelect = -1;
+                    enemySelect = -1;
+                    moveSelect = -1;
+                }
+            }
             if (turn < 3) {
                 turnIndicator.setPosition(allyteam[turn].x + allyteam[turn].width / 2 - 5, allyteam[turn].y - 20);
 
@@ -316,9 +349,7 @@ int main() {
                 if(allyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, &battlePaused)){
                     battlePaused = true;
                     printf("\nturn: %i\n",turn);
-                    if(turn++ > 5){
-                        turn = 0;
-                    }
+                    turn++;
                 }
 
                 allyteam[i].draw(window);
@@ -338,8 +369,11 @@ int main() {
                 if(enemyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, &battlePaused)){
                     battlePaused = true;
                     printf("\nturn: %i\n",turn);
-                    if(turn++ > 5){
+                    if(++turn > 5){
                         turn = 0;
+                        enemySelect = -1;
+                        allySelect = -1;
+                        moveSelect = -1;
                     }
                 }
                 enemyteam[i].draw(window);

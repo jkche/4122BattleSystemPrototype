@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,71 +6,73 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/Animation.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.cpp
 Animation.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/Animation.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.h
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/Animation.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.h
 SFML/Graphics.hpp
 -
 vector
 -
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/FillBar.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/FillBar.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveButton.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.cpp
 MoveButton.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveButton.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.h
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveButton.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.h
 SFML/Graphics.hpp
 -
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveMenu.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.cpp
 cmath
 -
 MoveMenu.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveMenu.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.h
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveMenu.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.h
 MoveButton.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveButton.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveButton.h
 move.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/move.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.h
 vector
 -
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/character.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.cpp
 character.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/character.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.h
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/character.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.h
 MoveMenu.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/MoveMenu.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/MoveMenu.h
 vector
 -
 Animation.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/Animation.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/Animation.h
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/main.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/main.cpp
 SFML/Graphics.hpp
 -
 cmath
 -
+stdlib.h
+-
 character.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/character.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.h
 FillBar.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/FillBar.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/FillBar.h
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/move.cpp
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.cpp
 move.h
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/move.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.h
 
-C:/Users/justi_000/Desktop/GaTech/Spring2018/4122/SFMLDemo/move.h
+/mnt/c/Users/augus/Documents/ECE4122/BattleSystem/move.h
 string
 -
 SFML/Graphics.hpp

@@ -1,14 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SFMLDemo.dir/main.cpp.obj"
-  "CMakeFiles/SFMLDemo.dir/MoveButton.cpp.obj"
-  "CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.obj"
-  "CMakeFiles/SFMLDemo.dir/move.cpp.obj"
-  "CMakeFiles/SFMLDemo.dir/Animation.cpp.obj"
-  "CMakeFiles/SFMLDemo.dir/character.cpp.obj"
+  "CMakeFiles/SFMLDemo.dir/main.cpp.o"
+  "CMakeFiles/SFMLDemo.dir/MoveButton.cpp.o"
+  "CMakeFiles/SFMLDemo.dir/MoveMenu.cpp.o"
+  "CMakeFiles/SFMLDemo.dir/move.cpp.o"
+  "CMakeFiles/SFMLDemo.dir/Animation.cpp.o"
+  "CMakeFiles/SFMLDemo.dir/character.cpp.o"
   "SFMLDemo.pdb"
-  "SFMLDemo.exe"
-  "SFMLDemo.exe.manifest"
-  "libSFMLDemo.dll.a"
+  "SFMLDemo"
 )
 
 # Per-language clean rules from dependency scanning.
