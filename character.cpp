@@ -2,12 +2,14 @@
 Character::Character(bool dead, sf::Texture *texture):
     animation(texture, sf::Vector2u(0,0),0.0f) {
     alive = selected = faceRight = faceTop = moving = isSelect = isSelected = false;
+    skillExecuted = true;
     health = maxhealth = mana = maxmana = attackTimer = speed = 0.0f;
     x = y = row = 0;
 
 }
 
-Character::Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves, sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed) :
+Character::Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves,
+                     sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, Character* dummyChar) :
 animation(texture, imageCount, switchTime)
 {
 	alive = true;
@@ -39,30 +41,19 @@ animation(texture, imageCount, switchTime)
     //init battle targeting vars
     isSelect = false;
     isSelected = false;
-}
 
-//void Character::initTexture(sf::Texture* texture){
-//	drawing.setTexture(texture);
-//	animation.initSize(texture);
-//}
+    //set dummy target; DO NOT use setTarget() function -- see function implementation for details
+    target = dummyChar;
+
+    //default skillExecuted is true
+    skillExecuted = true;
+}
 
 //For movement on a map; may not need
 void Character::update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f origPos, bool isAttack){
     velocity.x = 0.0f;
     velocity.y = 0.0f;
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        velocity.x -= speed;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        velocity.x += speed;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        velocity.y -= speed;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        velocity.y += speed;
-
-    // if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-    //     velocity.y = -sqrt(2.0f*981.0f*200);
-    // }
     if(velocity.x == 0.0f){
         row = 0;
         moving = false;
@@ -84,7 +75,6 @@ void Character::update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f orig
 
 //For movement and animation in battle
 void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime){   //total animation time ~ 25 deltaTimes
-    bool moving;	//indicates if char is moving across battle screen (to or from an enemy)
     float xVel = (enemyPos.x - origPos.x)/(moveTime); //moving forward and back takes moveTime seconds
     if(enemyPos.x -100 > getPosition().x && isAttack) {	//Char is moving to target
         moving = true;
@@ -96,6 +86,10 @@ void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         velocity.x = 0.0f;
         velocity.y = 0.0f;
     }else if(getPosition().x > origPos.x){	//char is finished attacking; moving back to original position
+        if(!skillExecuted){
+            //Do whatever the skill does here
+            skillExecuted = true;
+        }
         moving = true;
         float slope = (enemyPos.y - getPosition().y) / (enemyPos.x - getPosition().x);
         velocity.x = -xVel;
@@ -106,7 +100,7 @@ void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         velocity.y = 0.0f;
         drawing.setPosition(origPos);
     }
-
+    moving = false;
     //animation and movement
     animation.updateAttack(deltaTime, isAttack, moving, attackTimer/2 - moveTime);
     drawing.setTextureRect(animation.uvRect);
@@ -174,4 +168,5 @@ void Character::setTarget(Character *target) {  //POSSIBLE TO DO: Update to hand
     this->target = target;
     target->isSelected = true;
     initAttack();
+    skillExecuted = false;
 }

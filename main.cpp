@@ -102,13 +102,15 @@ int main() {
     sf::Texture textureTest;
     textureTest.loadFromFile("player.png");
 
+    //DUMMY CHAR FOR ALLY/ENEMY INIT
+    Character dummyChar(true,&textureTest);
+
     //set party number for specific member turn check--useful for member and target select
-    allyteam.push_back(Character(ally1Xpos, Ystart, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
-    //allyteam.push_back(Character(false));
+    allyteam.push_back(Character(ally1Xpos, Ystart, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
     allyteam.back().setPartyNumber(allyteam.size()-1);
-    allyteam.push_back(Character(ally1Xpos + Xoffset, Ystart + Ygap, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    allyteam.push_back(Character(ally1Xpos + Xoffset, Ystart + Ygap, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
     allyteam.back().setPartyNumber(allyteam.size()-1);
-    allyteam.push_back(Character(ally1Xpos, Ystart + 2 * Ygap, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    allyteam.push_back(Character(ally1Xpos, Ystart + 2 * Ygap, 100, 100, ally1DefMoves, ally1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
     allyteam.back().setPartyNumber(allyteam.size()-1);
     
     std::vector<MoveMenu> defMenus;
@@ -129,11 +131,11 @@ int main() {
 
     std::vector<Move> enemy1DefMoves;
     std::vector<Move> enemy1OffMoves;
-    enemyteam.push_back(Character(enemy1Xpos, Ystart, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    enemyteam.push_back(Character(enemy1Xpos, Ystart, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
     enemyteam.back().setPartyNumber(enemyteam.size()-1);
-    enemyteam.push_back(Character(enemy1Xpos - Xoffset, Ystart + Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    enemyteam.push_back(Character(enemy1Xpos - Xoffset, Ystart + Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
     enemyteam.back().setPartyNumber(enemyteam.size()-1);
-    enemyteam.push_back(Character(enemy1Xpos, Ystart + 2 * Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f));
+    enemyteam.push_back(Character(enemy1Xpos, Ystart + 2 * Ygap, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
     enemyteam.back().setPartyNumber(enemyteam.size()-1);
 
     for (int i = 0; i < enemyteam.size(); ++i) {
@@ -164,13 +166,30 @@ int main() {
                     window.close();
                     break;
                 case sf::Event::MouseButtonPressed:
+
+                    //NEW TURN DETERMINATION START
+                    if(battlePaused && turn < 6) {   //move being selected
+                        if (turn < 3) {   //ally making move
+                            allyteam[]
+                        }
+                        else{               //enemy making move
+
+                        }
+
+                    }
+                    //NEW TURN DETERMINATION END
+
+                    //OLD TURN DETERMINATION START
                     if (battlePaused && turn < 3) {
                         if(allySelect > -1) {                 //ally selection paths
                             if (allyteam[allySelect].isSelect && moveSelect > -1 && enemySelect > -1) {
-                                if (!enemyteam[enemySelect].isSelect)   //ally has chosen move, targets enemy
+                                if (!enemyteam[enemySelect].isSelect) {   //ally has chosen move, targets enemy
                                     allyteam[allySelect].setTarget(&enemyteam[enemySelect]);
+                                    printf("\nAlly selected target\n");
+                                }
                             } else if (!allyteam[allySelect].isSelect && enemySelect <= -1) {   //ally selected
                                 allyteam[allySelect].isSelect = true;
+                                printf("\nAlly selected\n");
                             }
                         }else if(enemySelect > -1) {                 //enemy selection paths
                             if (enemyteam[enemySelect].isSelect && moveSelect > -1 && allySelect > -1) {     //enemy has chosen move, targets ally
@@ -186,6 +205,9 @@ int main() {
                             }
                         }
                     }
+                    //OLD TURN DETERMINATION END
+
+
                     break;
             }
         }
@@ -232,7 +254,7 @@ int main() {
             window.clear();
             for (int i = 0; i < allyteam.size(); ++i) {
             	if (allyteam[i].alive) {
-    //	        	window.draw(allyteam[i].drawing);
+//    	        	window.draw(allyteam[i].drawing);
                     allyteam[i].movementUpdate(deltaTime,attackTimer, &frameCounter);
                     allyteam[i].draw(window);
     	        	HPBars[i].amount = allyteam[i].health/allyteam[i].maxhealth;
@@ -248,7 +270,7 @@ int main() {
             for (int i = 0; i < enemyteam.size(); ++i) {
             	if (enemyteam[i].alive) {
     //	        	window.draw(enemyteam[i].drawing);
-                    allyteam[i].movementUpdate(deltaTime,attackTimer, &frameCounter);
+                    enemyteam[i].movementUpdate(deltaTime,attackTimer, &frameCounter);
                     enemyteam[i].draw(window);
     	        	HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
     	        	HPBars[i + allyteam.size()].update();
