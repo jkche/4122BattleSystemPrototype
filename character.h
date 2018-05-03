@@ -62,8 +62,9 @@ public:
     bool isAttacking;   //is char executing attack animation?
     bool isSelected;    //is char target of another char?
 	int getPartyNum();
-    void setTarget(Character* target);
+    void setTarget(Character* target,int moveSelect, std::vector<Move>move);
 private:
     Character* target;  //target
     bool skillExecuted; //determines whether char has used skill on target
+    Move skill;         //skill to be used on target
 };

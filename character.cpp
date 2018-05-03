@@ -135,6 +135,7 @@ sf::Vector2f Character::getOrigPos() {
 
 //Pushes animation sprites onto animation vector; see Animation.h
 void Character::initAttack() {  //TO DO: Update to fill with move-specific animations
+
     animation.attackAnimationFill();
 }
 
@@ -164,9 +165,12 @@ int Character::getPartyNum() {
     return partyNum;
 }
 
-void Character::setTarget(Character *target) {  //POSSIBLE TO DO: Update to handle move-specific animations
+void Character::setTarget(Character *target,int moveSelect, std::vector<Move>moves) {  //POSSIBLE TO DO: Update to handle move-specific animations
     this->target = target;
     target->isSelected = true;
     initAttack();
     skillExecuted = false;
+
+    //set skill
+    skill = moves[moveSelect];
 }
