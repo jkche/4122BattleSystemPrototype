@@ -59,7 +59,7 @@ sf::RectangleShape turnIndicator;
 
 int turn;
 float deltaTime = 0.0f;
-float frameSpeed = 75000.0f;
+float frameSpeed = 15000.0f;
 bool battlePaused = true;
 bool win = false;
 bool lose = false;
@@ -74,29 +74,40 @@ int main() {
 
     //Disable key repeat for mouse clicks
     window.setKeyRepeatEnabled(false);
-
+    sf::Texture backdrop;
+    backdrop.loadFromFile("grass.jpg");
+    sf::RectangleShape background(sf::Vector2f(1920, 1080));
+    background.setTexture(&backdrop);
+    background.setPosition(0,0);
 
     sf::Texture sword1;
     sword1.loadFromFile("sword.png");
     sf::Texture sword2;
     sword2.loadFromFile("sword2.png");
-
+    sf::Texture heal1;
+    heal1.loadFromFile("heal.png");
+    sf::Texture heal2;
+    heal2.loadFromFile("heal2.png");
+    sf::Texture boomerang1;
+    boomerang1.loadFromFile("boomerang.png");
+    sf::Texture boomerang2;
+    boomerang2.loadFromFile("boomerang2.png");
 
     std::vector<Move> ally1DefMoves;
     //Move 1
     ally1DefMoves.clear();
     //std::cout << ally1DefMoves.size() << std::endl;
-    ally1DefMoves.push_back(Move("Shout", 10, 2, 2, "Cast"));
-    ally1DefMoves.push_back(Move("Heal", 10, 5, 1, "Cast"));
-    for (int i = 0; i < 8; ++i) {
+    //ally1DefMoves.push_back(Move("Shout", 10, 2, 2, "Cast"));
+    ally1DefMoves.push_back(Move("Heal", 20, 5, 1, "Cast", &heal1, &heal2));
+    for (int i = 1; i < 8; ++i) {
     	ally1DefMoves.push_back(Move());
     }
     //std::cout << ally1DefMoves.size() << std::endl;
     std::vector<Move> ally1OffMoves;
     ally1OffMoves.clear();
     ally1OffMoves.push_back(Move("Slash", 10, 1, 0, "Swing", &sword1, &sword2));
-    ally1OffMoves.push_back(Move("Boomerang Blade", 50, 4, 0, "Cast"));
-    for (int i = 0; i < 8; ++i) {
+    ally1OffMoves.push_back(Move("Boomerang Blade", 50, 4, 0, "Cast", &boomerang1, &boomerang2));
+    for (int i = 2; i < 8; ++i) {
     	ally1OffMoves.push_back(Move());
     }
 
@@ -140,15 +151,15 @@ int main() {
     enemy1DefMoves.clear();
     //std::cout << ally1DefMoves.size() << std::endl;
     enemy1DefMoves.push_back(Move("Heal", 10, 5, 1, "Cast"));
-    for (int i = 0; i < 8; ++i) {
-        enemy1DefMoves.push_back(Move());
-    }
+    //for (int i = 1; i < 8; ++i) {
+     //   enemy1DefMoves.push_back(Move());
+    //}
     //std::cout << ally1DefMoves.size() << std::endl;
     enemy1OffMoves.clear();
     enemy1OffMoves.push_back(Move("Slash", 10, 1, 0, "Swing", &sword1, &sword2));
-    for (int i = 0; i < 8; ++i) {
-        enemy1OffMoves.push_back(Move());
-    }
+    //for (int i = 1; i < 8; ++i) {
+    //    enemy1OffMoves.push_back(Move());
+    //}
 
     enemyteam.push_back(Character(enemy1Xpos, Ystart, 100, 100, enemy1DefMoves, enemy1OffMoves, &textureTest, sf::Vector2u(3,4), 0.3f, 100.0f, &dummyChar));
     enemyteam.back().setPartyNumber(enemyteam.size()-1);
@@ -180,6 +191,7 @@ int main() {
     	//cout << (hpbar.foreground).getSize() << endl;
         sf::Event evnt;
         while(window.pollEvent(evnt)){
+            
             switch(evnt.type){
                 case sf::Event::Closed:
                     window.close();
@@ -297,43 +309,9 @@ int main() {
                 turnIndicator.setPosition(enemyteam[turn - 3].x + enemyteam[turn - 3].width / 2 - 5,
                                           enemyteam[turn - 3].y - 20);
             }
-
-//
-//            sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-//            if (allySelect > -1) {
-//                allySelect = isHoveringAlly2(allySelect, mousePos);
-//            }
-//            if (enemySelect > -1) {
-//                enemySelect = isHoveringEnemy2(enemySelect, mousePos);
-//            }
-//            if (allySelect == -1 && enemySelect == -1) {
-//                allySelect = isHoveringAlly(mousePos);
-//                enemySelect = isHoveringEnemy(mousePos);
-//            }
-//            moveSelect = -1;
-//            float circleCenterX = -1000.0f;
-//            float circleCenterY = -1000.0f;
-//            if (allySelect > -1) {
-//                circleCenterX = allyteam[allySelect].x + allyteam[allySelect].width / 2 - playerHighlight.getRadius();
-//                circleCenterY = allyteam[allySelect].y + allyteam[allySelect].height / 2 - playerHighlight.getRadius();
-//                defMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
-//                offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-//                moveSelect = isHoveringMove(defMenus[turn], mousePos);
-//            } else if (enemySelect > -1) {
-//                circleCenterX =
-//                        enemyteam[enemySelect].x + enemyteam[enemySelect].width / 2 - playerHighlight.getRadius();
-//                circleCenterY =
-//                        enemyteam[enemySelect].y + enemyteam[enemySelect].height / 2 - playerHighlight.getRadius();
-//                offMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
-//                defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-//                moveSelect = isHoveringMove(offMenus[turn], mousePos);
-//            } else {
-//                defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-//                offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-//            }
-//            playerHighlight.setPosition(circleCenterX, circleCenterY);
         }
         window.clear();
+        window.draw(background);
         if(!battlePaused){
             if(turn < 3) {
                 defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
@@ -350,6 +328,9 @@ int main() {
                     battlePaused = true;
                     printf("\nturn: %i\n",turn);
                     turn++;
+                    allySelect = -1;
+                    enemySelect = -1;
+                    moveSelect = -1;
                 }
 
                 allyteam[i].draw(window);

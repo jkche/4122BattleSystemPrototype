@@ -100,30 +100,12 @@ bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         velocity.y = 0.0f;
         printf("\nAttack Executing\n");
     }else if(needToMove2){	//char is finished attacking; moving back to original position
-        if(!skillExecuted){
-            //Do whatever the skill does here
-            skillExecuted = true;
-            printf("\nSkill executed\n");
-            switch (skill.damageType) {
-                case 1:
-                    target->health += skill.damage;
-                    if (target->health >= target->maxhealth) {
-                        target->health = target->maxhealth;
-                    }
-                    break;
-                case 0:
-                    target->health -= skill.damage;
-                    if (target->health <= 0) {
-                        target->alive = false;
-                    }
-                    break;
-            }
-        }
         moving = true;
         float slope = (enemyPos.y - getPosition().y) / (enemyPos.x - getPosition().x);
         velocity.x = -xVel;
         velocity.y = slope * velocity.x;
     }else{	//reset char to original position
+
         moving = false;
         velocity.x = 0.0f;
         velocity.y = 0.0f;
@@ -140,6 +122,25 @@ bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         printf("\nframeCount: %f\n",*frameCounter);
         printf("\nattackTimer: %f\n", attackTimer);
         skillDone = true;
+    }
+    if(!isAttack && !skillExecuted){
+        //Do whatever the skill does here
+        skillExecuted = true;
+        printf("\nSkill executed\n");
+        switch (skill.damageType) {
+            case 1:
+                target->health += skill.damage;
+                if (target->health >= target->maxhealth) {
+                    target->health = target->maxhealth;
+                }
+                break;
+            case 0:
+                target->health -= skill.damage;
+                if (target->health <= 0) {
+                    target->alive = false;
+                }
+                break;
+        }
     }
     moving = false;
     //animation and movement
