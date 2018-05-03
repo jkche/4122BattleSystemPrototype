@@ -58,6 +58,7 @@ sf::RectangleShape turnIndicator;
 
 int turn;
 float deltaTime = 0.0f;
+float frameSpeed = 1000.0f;
 bool battlePaused = true;
 
 
@@ -65,7 +66,7 @@ int main() {
     sf::Clock clock;
     deltaTime = clock.restart().asSeconds();
 //battle frame vars
-    float attackTimer = 6;
+    float attackTimer = 6.0f;
     float frameCounter = 0.0f;
 	sf::RenderWindow window(sf::VideoMode(1920,1080), "Lonely Blade", sf::Style::Close | sf::Style::Resize);
 
@@ -170,42 +171,67 @@ int main() {
                     //NEW TURN DETERMINATION START
                     if(battlePaused && turn < 6) {   //move being selected
                         if (turn < 3) {   //ally making move
-                            allyteam[]
+                            for(int i = 0; i < allyteam.size(); ++i){
+                                allyteam[i].isSelect = false;
+                            }
+                            allyteam[turn].isSelect = true;
+                            if(enemySelect > -1 && moveSelect > -1){    //target enemy; use offensive moves
+                                allyteam[turn].setTarget(&enemyteam[enemySelect],moveSelect,ally1OffMoves);
+                                battlePaused = false;
+                                printf("\nBattle unpaused; player attacking\n");
+                            }else if(allySelect > -1 && moveSelect > -1){   //target ally; use defensive moves
+                                allyteam[turn].setTarget(&allyteam[allySelect],moveSelect,ally1DefMoves);
+                                battlePaused = false;
+                                printf("\nBattle unpaused; player defending\n");
+                            }
                         }
                         else{               //enemy making move
+                            for(int i = 0; i < enemyteam.size(); ++i){
+                                enemyteam[i].isSelect = false;
+                            }
+                            enemyteam[turn].isSelect = true;
+                            if(enemySelect > -1 && moveSelect > -1){    //target enemy; use defensive moves
+                                enemyteam[turn].setTarget(&enemyteam[enemySelect],moveSelect,enemy1DefMoves);
+                                battlePaused = false;
+                                printf("\nBattle unpaused; enemy attacking\n");
+                            }else if(allySelect > -1 && moveSelect > -1){   //target ally; use offensive moves
+                                enemyteam[turn].setTarget(&allyteam[allySelect],moveSelect,enemy1OffMoves);
+                                battlePaused = false;
+                                printf("\nBattle unpaused; enemy defending\n");
+                            }
 
                         }
 
                     }
                     //NEW TURN DETERMINATION END
-
-                    //OLD TURN DETERMINATION START
-                    if (battlePaused && turn < 3) {
-                        if(allySelect > -1) {                 //ally selection paths
-                            if (allyteam[allySelect].isSelect && moveSelect > -1 && enemySelect > -1) {
-                                if (!enemyteam[enemySelect].isSelect) {   //ally has chosen move, targets enemy
-                                    allyteam[allySelect].setTarget(&enemyteam[enemySelect]);
-                                    printf("\nAlly selected target\n");
-                                }
-                            } else if (!allyteam[allySelect].isSelect && enemySelect <= -1) {   //ally selected
-                                allyteam[allySelect].isSelect = true;
-                                printf("\nAlly selected\n");
-                            }
-                        }else if(enemySelect > -1) {                 //enemy selection paths
-                            if (enemyteam[enemySelect].isSelect && moveSelect > -1 && allySelect > -1) {     //enemy has chosen move, targets ally
-                                if (!allyteam[allySelect].isSelect)   //enemy targets ally
-                                    enemyteam[enemySelect].setTarget(&allyteam[allySelect]);
-                            } else if (!enemyteam[enemySelect].isSelect && allySelect <= -1) {   //enemy selected
-                                enemyteam[enemySelect].isSelect = true;
-                            }
-                        }
-                        if (allySelect > -1 || enemySelect > -1) {
-                            if (moveSelect > -1) {
-                                battlePaused = false;
-                            }
-                        }
-                    }
-                    //OLD TURN DETERMINATION END
+//
+//                    //OLD TURN DETERMINATION START
+//                    if (battlePaused && turn < 3) {
+//                        if(allySelect > -1) {                 //ally selection paths
+//                            if (allyteam[allySelect].isSelect && moveSelect > -1 && enemySelect > -1) {
+//                                if (!enemyteam[enemySelect].isSelect) {   //ally has chosen move, targets enemy
+//                                    allyteam[allySelect].setTarget(&enemyteam[enemySelect]);
+//                                    printf("\nAlly selected target\n");
+//                                }
+//                            } else if (!allyteam[allySelect].isSelect && enemySelect <= -1) {   //ally selected
+//                                allyteam[allySelect].isSelect = true;
+//                                printf("\nAlly selected\n");
+//                            }
+//                        }else if(enemySelect > -1) {                 //enemy selection paths
+//                            if (enemyteam[enemySelect].isSelect && moveSelect > -1 && allySelect > -1) {     //enemy has chosen move, targets ally
+//                                if (!allyteam[allySelect].isSelect)   //enemy targets ally
+//                                    enemyteam[enemySelect].setTarget(&allyteam[allySelect]);
+//                            } else if (!enemyteam[enemySelect].isSelect && allySelect <= -1) {   //enemy selected
+//                                enemyteam[enemySelect].isSelect = true;
+//                            }
+//                        }
+//                        if (allySelect > -1 || enemySelect > -1) {
+//                            if (moveSelect > -1) {
+//                                battlePaused = false;
+//                            }
+//                        }
+//                    }
+//                    //OLD TURN DETERMINATION END
 
 
                     break;
@@ -213,85 +239,94 @@ int main() {
         }
         if (battlePaused) {
             if (turn < 3) {
-            	turnIndicator.setPosition(allyteam[turn].x + allyteam[turn].width/2 - 5, allyteam[turn].y - 20);
+                turnIndicator.setPosition(allyteam[turn].x + allyteam[turn].width / 2 - 5, allyteam[turn].y - 20);
             } else {
-            	turnIndicator.setPosition(enemyteam[turn - 3].x + enemyteam[turn - 3].width/2 - 5, enemyteam[turn - 3].y - 20);
+                turnIndicator.setPosition(enemyteam[turn - 3].x + enemyteam[turn - 3].width / 2 - 5,
+                                          enemyteam[turn - 3].y - 20);
             }
 
 
             sf::Vector2i mousePos = sf::Mouse::getPosition(window);
             if (allySelect > -1) {
-            	allySelect = isHoveringAlly2(allySelect, mousePos);
+                allySelect = isHoveringAlly2(allySelect, mousePos);
             }
             if (enemySelect > -1) {
-            	enemySelect = isHoveringEnemy2(enemySelect, mousePos);
+                enemySelect = isHoveringEnemy2(enemySelect, mousePos);
             }
             if (allySelect == -1 && enemySelect == -1) {
-            	allySelect = isHoveringAlly(mousePos);
-            	enemySelect = isHoveringEnemy(mousePos);
+                allySelect = isHoveringAlly(mousePos);
+                enemySelect = isHoveringEnemy(mousePos);
             }
             moveSelect = -1;
             float circleCenterX = -1000.0f;
             float circleCenterY = -1000.0f;
             if (allySelect > -1) {
-            	circleCenterX = allyteam[allySelect].x + allyteam[allySelect].width/2 - playerHighlight.getRadius();
-            	circleCenterY =  allyteam[allySelect].y + allyteam[allySelect].height/2 - playerHighlight.getRadius();
-            	defMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
-            	offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-            	moveSelect = isHoveringMove(defMenus[turn], mousePos);
+                circleCenterX = allyteam[allySelect].x + allyteam[allySelect].width / 2 - playerHighlight.getRadius();
+                circleCenterY = allyteam[allySelect].y + allyteam[allySelect].height / 2 - playerHighlight.getRadius();
+                defMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
+                offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+                moveSelect = isHoveringMove(defMenus[turn], mousePos);
             } else if (enemySelect > -1) {
-            	circleCenterX = enemyteam[enemySelect].x + enemyteam[enemySelect].width/2 - playerHighlight.getRadius();
-            	circleCenterY = enemyteam[enemySelect].y + enemyteam[enemySelect].height/2 - playerHighlight.getRadius();
-            	offMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
-            	defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-            	moveSelect = isHoveringMove(offMenus[turn], mousePos);
+                circleCenterX =
+                        enemyteam[enemySelect].x + enemyteam[enemySelect].width / 2 - playerHighlight.getRadius();
+                circleCenterY =
+                        enemyteam[enemySelect].y + enemyteam[enemySelect].height / 2 - playerHighlight.getRadius();
+                offMenus[turn].setMenuPosition(sf::Vector2f(circleCenterX, circleCenterY));
+                defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+                moveSelect = isHoveringMove(offMenus[turn], mousePos);
             } else {
-            	defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
-            	offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+                defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+                offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
             }
             playerHighlight.setPosition(circleCenterX, circleCenterY);
-
-            window.clear();
-            for (int i = 0; i < allyteam.size(); ++i) {
-            	if (allyteam[i].alive) {
-//    	        	window.draw(allyteam[i].drawing);
-                    allyteam[i].movementUpdate(deltaTime,attackTimer, &frameCounter);
-                    allyteam[i].draw(window);
-    	        	HPBars[i].amount = allyteam[i].health/allyteam[i].maxhealth;
-    	        	HPBars[i].update();
-    	        	window.draw(HPBars[i].background);
-    	        	window.draw(HPBars[i].foreground);
-    	        	MPBars[i].amount = allyteam[i].mana/allyteam[i].maxmana;
-    	        	MPBars[i].update();
-    	        	window.draw(MPBars[i].background);
-    	        	window.draw(MPBars[i].foreground);
-    	        }
-            }
-            for (int i = 0; i < enemyteam.size(); ++i) {
-            	if (enemyteam[i].alive) {
-    //	        	window.draw(enemyteam[i].drawing);
-                    enemyteam[i].movementUpdate(deltaTime,attackTimer, &frameCounter);
-                    enemyteam[i].draw(window);
-    	        	HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
-    	        	HPBars[i + allyteam.size()].update();
-    	        	window.draw(HPBars[i + allyteam.size()].background);
-    	        	window.draw(HPBars[i + allyteam.size()].foreground);
-    	        	MPBars[i + allyteam.size()].amount = enemyteam[i].mana/enemyteam[i].maxmana;
-    	        	MPBars[i + allyteam.size()].update();
-    	        	window.draw(MPBars[i + allyteam.size()].background);
-    	        	window.draw(MPBars[i + allyteam.size()].foreground);
-    	        }
-            }
-            for (int i = 0; i < 8; ++i) {
-            	window.draw(offMenus[turn].piMenu[i].getAppearance());
-            	window.draw(defMenus[turn].piMenu[i].getAppearance());
-            }
-            window.draw(turnIndicator);
-            window.draw(playerHighlight);
-            window.display();
-        } else {
-
         }
+        window.clear();
+        if(!battlePaused){
+            defMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+            offMenus[turn].setMenuPosition(sf::Vector2f(-1000.0f, -1000.0f));
+
+            playerHighlight.setPosition(-1000.0f, -1000.0f);
+        }
+        for (int i = 0; i < allyteam.size(); ++i) {
+            if (allyteam[i].alive) {
+//    	        	window.draw(allyteam[i].drawing);
+                allyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, battlePaused);
+                allyteam[i].draw(window);
+                HPBars[i].amount = allyteam[i].health/allyteam[i].maxhealth;
+                HPBars[i].update();
+                window.draw(HPBars[i].background);
+                window.draw(HPBars[i].foreground);
+                MPBars[i].amount = allyteam[i].mana/allyteam[i].maxmana;
+                MPBars[i].update();
+                window.draw(MPBars[i].background);
+                window.draw(MPBars[i].foreground);
+            }
+        }
+        for (int i = 0; i < enemyteam.size(); ++i) {
+            if (enemyteam[i].alive) {
+//	        	window.draw(enemyteam[i].drawing);
+                enemyteam[i].movementUpdate(deltaTime*frameSpeed,attackTimer, &frameCounter, battlePaused);
+                enemyteam[i].draw(window);
+                HPBars[i + allyteam.size()].amount = enemyteam[i].health/enemyteam[i].maxhealth;
+                HPBars[i + allyteam.size()].update();
+                window.draw(HPBars[i + allyteam.size()].background);
+                window.draw(HPBars[i + allyteam.size()].foreground);
+                MPBars[i + allyteam.size()].amount = enemyteam[i].mana/enemyteam[i].maxmana;
+                MPBars[i + allyteam.size()].update();
+                window.draw(MPBars[i + allyteam.size()].background);
+                window.draw(MPBars[i + allyteam.size()].foreground);
+            }
+        }
+        for (int i = 0; i < 8; ++i) {
+            window.draw(offMenus[turn].piMenu[i].getAppearance());
+            window.draw(defMenus[turn].piMenu[i].getAppearance());
+        }
+        window.draw(turnIndicator);
+        window.draw(playerHighlight);
+        window.display();
+//        } else {
+//
+//        }
     }
 
     return 0;
