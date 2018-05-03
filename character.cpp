@@ -85,6 +85,14 @@ void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         if(!skillExecuted){
             //Do whatever the skill does here
             skillExecuted = true;
+            switch (skill.damageType) {
+                case 1:
+                    target->health += skill.damage;
+                    break;
+                case 0:
+                    target->health -= skill.damage;
+                    break;
+            }
         }
         moving = true;
         float slope = (enemyPos.y - getPosition().y) / (enemyPos.x - getPosition().x);
