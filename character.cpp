@@ -74,7 +74,21 @@ void Character::update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f orig
 bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime, bool* battlePaused, float* frameCounter){   //total animation time ~ 25 deltaTimes
     bool skillDone = false;
     float xVel = (enemyPos.x - origPos.x)/(moveTime); //moving forward and back takes moveTime seconds
-    if(enemyPos.x -100 > getPosition().x && isAttack) {	//Char is moving to target
+    bool needToMove = false;
+    bool needToMove2 = false;
+    if (xVel > 0 && enemyPos.x - 100 > getPosition().x) {
+        needToMove = true;
+    }
+    if (xVel < 0 && enemyPos.x + 100 < getPosition().x) {
+        needToMove = true;
+    }
+    if (xVel > 0 && getPosition().x > origPos.x) {
+        needToMove2 = true;
+    }
+    if (xVel < 0 && getPosition().x < origPos.x) {
+        needToMove2 = true;
+    }
+    if(needToMove && isAttack) {	//Char is moving to target
         moving = true;
         float slope = (enemyPos.y - getPosition().y) / (enemyPos.x - getPosition().x);
         velocity.x = xVel;
@@ -85,7 +99,7 @@ bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         velocity.x = 0.0f;
         velocity.y = 0.0f;
         printf("\nAttack Executing\n");
-    }else if(getPosition().x > origPos.x){	//char is finished attacking; moving back to original position
+    }else if(needToMove2){	//char is finished attacking; moving back to original position
         if(!skillExecuted){
             //Do whatever the skill does here
             skillExecuted = true;
@@ -93,9 +107,15 @@ bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
             switch (skill.damageType) {
                 case 1:
                     target->health += skill.damage;
+                    if (target->health >= target->maxhealth) {
+                        target->health = target->maxhealth;
+                    }
                     break;
                 case 0:
                     target->health -= skill.damage;
+                    if (target->health <= 0) {
+                        target->alive = false;
+                    }
                     break;
             }
         }
