@@ -25,12 +25,13 @@ public:
 
 
 	//Updated Character constructor, added new public functions and private vars
-	Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves, sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed);	//new args:
+	Character(int posx, int posy, float hp, float mp, std::vector<Move> dMoves, std::vector<Move> oMoves, sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, Character* dummyChar);	//new args:
 		//texture = spritesheet.png, imageCount = # images on sheet in (cols, rows), switchTime = time before switching to next frame in idle animation, speed = char speed for walking (might not be necessary)
 	//void initTexture(sf::Texture* texture);	//initializes texture after reading it in main
+//    ~Character();
     void update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f origPos, bool isAttack);    //may not need; mostly for idle animation
     void draw(sf::RenderWindow& window);	//draws char to window
-    void updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime);
+    bool updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime, bool* battlePaused, float* frameCounter);	//returns true when char skill execute animation finishes
     //animation updates to attack; isAttack = char attacking? or retreating (T/F); attackTimer = attack animation total time, seconds; moveTime = amt of time character takes to move to target
     sf::Vector2f getPosition();
     sf::Vector2f getSize();
@@ -38,7 +39,7 @@ public:
     sf::Vector2f getOrigPos();	//may be unnecessary
     void initAttack();	//fills animation vector of sprites for attack animation
     void setPartyNumber(int num);
-    void movementUpdate(float deltaTime, float attackTimer, float* frameCounter);
+    bool movementUpdate(float deltaTime, float attackTimer, float* frameCounter, bool* battlePaused);	//returns when skill animation finishes; increment turn and pause battle in main
 
 		
 private:
@@ -60,6 +61,10 @@ public:
     bool isSelect;      //is char targeting another char?
     bool isAttacking;   //is char executing attack animation?
     bool isSelected;    //is char target of another char?
+	int getPartyNum();
+    void setTarget(Character* target,int moveSelect, std::vector<Move>move);
 private:
     Character* target;  //target
+    bool skillExecuted; //determines whether char has used skill on target
+    Move skill;         //skill to be used on target
 };

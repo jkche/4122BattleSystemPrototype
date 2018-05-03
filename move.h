@@ -5,7 +5,7 @@ class Move {
 public:
 	std::string name;
 	int damage;
-	std::string damageType;
+	int damageType;
 	int cost;
 	int cooldown;
 	int currentCooldown;
@@ -16,7 +16,7 @@ public:
 	sf::Texture *texture2;
 	bool textured;
 	Move();
-	Move(std::string, int, int, std::string, std::string);
-	Move(std::string, int, int, std::string, std::string, sf::Texture *, sf::Texture *);
+	Move(std::string, int, int, int, std::string);
+	Move(std::string, int, int, int, std::string, sf::Texture *, sf::Texture *);
 	void update();
 };

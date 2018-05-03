@@ -61,6 +61,8 @@ SFML/Graphics.hpp
 -
 cmath
 -
+stdlib.h
+-
 character.h
 /mnt/c/Users/augus/Documents/ECE4122/BattleSystem/character.h
 FillBar.h

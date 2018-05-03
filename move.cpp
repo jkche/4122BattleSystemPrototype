@@ -9,7 +9,7 @@ Move::Move() {
 // Cooldown Value
 // Damage Type
 // Animation to use
-Move::Move(std::string movename, int dmgVal, int cdVal, std::string dmgType, std::string anim) {
+Move::Move(std::string movename, int dmgVal, int cdVal, int dmgType, std::string anim) {
 	name = movename;
 	damage = dmgVal;
 	damageType = dmgType;
@@ -20,7 +20,7 @@ Move::Move(std::string movename, int dmgVal, int cdVal, std::string dmgType, std
 	exists = true;
 	textured = false;
 }
-Move::Move(std::string movename, int dmgVal, int cdVal, std::string dmgType, std::string anim, sf::Texture *tex1, sf::Texture *tex2) {
+Move::Move(std::string movename, int dmgVal, int cdVal, int dmgType, std::string anim, sf::Texture *tex1, sf::Texture *tex2) {
 	name = movename;
 	damage = dmgVal;
 	damageType = dmgType;
