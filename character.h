@@ -39,7 +39,7 @@ public:
     sf::Vector2f getOrigPos();	//may be unnecessary
     void initAttack();	//fills animation vector of sprites for attack animation
     void setPartyNumber(int num);
-    void movementUpdate(float deltaTime, float attackTimer, float* frameCounter);
+    void movementUpdate(float deltaTime, float attackTimer, float* frameCounter, bool* battlePaused);
 
 		
 private:

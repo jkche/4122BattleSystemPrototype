@@ -24,7 +24,6 @@ animation(texture, imageCount, switchTime)
 
 	drawing.setPosition(x, y);
 	drawing.setSize(sf::Vector2f(width, height));
-	// drawing.setFillColor(sf::Color::Cyan);
 
 
 
@@ -32,11 +31,8 @@ animation(texture, imageCount, switchTime)
     this->speed = speed;
     row = 0;
     faceRight = true;
-    // drawing.setSize(sf::Vector2f(100.0f,100.0f));
-    // drawing.setPosition(100.0f,100.0f);
-     drawing.setTexture(texture);
-//    drawing.setOrigin(50.0f, 50.0f);
-//    nameOfSpriteSheet = name;
+    drawing.setTexture(texture);
+    setOrigPos(sf::Vector2f((float)posx,(float)posy));
 
     //init battle targeting vars
     isSelect = false;
@@ -99,6 +95,7 @@ void Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         velocity.x = 0.0f;
         velocity.y = 0.0f;
         drawing.setPosition(origPos);
+        isSelect = false;   //finish updateAttacking
     }
     moving = false;
     //animation and movement
@@ -143,19 +140,25 @@ void Character::setPartyNumber(int num) {
     partyNum = num;
 }
 
-void Character::movementUpdate(float deltaTime, float attackTimer, float* frameCounter){    //TO DO: Update to check for move selected; change animation based on move
-    if(isSelect && target->isSelected) { //attack initiated
-        isSelect = false;
-        target->isSelected = false;
-        printf("\nAttack initiated\n");
-        isAttacking = true;
-    }
-    if(*frameCounter < attackTimer && isAttacking){
-        *frameCounter += deltaTime;
-        updateAttack(deltaTime, target->getPosition(), *frameCounter < attackTimer / 2, attackTimer, 1);
-    }else if(isAttacking){
-        *frameCounter -= attackTimer;
-        isAttacking = false;
+void Character::movementUpdate(float deltaTime, float attackTimer, float* frameCounter, bool* battlePaused){    //TO DO: Update to check for move selected; change animation based on move
+    if(!*(battlePaused) && isSelect){
+//        printf("\nDeltaTime: %f\n",deltaTime);
+        if(target->isSelected) { //attack initiated
+//            isSelect = false;
+            target->isSelected = false;
+            printf("\nAttack initiated\n");
+            isAttacking = true;
+        }
+        if(*frameCounter < attackTimer && isAttacking){
+            *frameCounter += deltaTime;
+            printf("\nFrameCounter incremented\n");
+            updateAttack(deltaTime, target->getPosition(), *frameCounter < attackTimer / 2, attackTimer, 1);
+            printf("\nAttack animation updated\n");
+        }else if(isAttacking) {
+            *frameCounter -= attackTimer;
+            isAttacking = false;
+            printf("\nMain attack animation ended\n");
+        }
     }else {
         update(deltaTime, sf::Vector2f(0.0f, 0.0f), sf::Vector2f(0.0f, 0.0f), false);
     }
