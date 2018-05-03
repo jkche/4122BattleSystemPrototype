@@ -70,6 +70,7 @@ void Character::update(float deltaTime, sf::Vector2f enemyPos, sf::Vector2f orig
 }
 
 //For movement and animation in battle
+
 bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAttack, float attackTimer, float moveTime, bool* battlePaused, float* frameCounter){   //total animation time ~ 25 deltaTimes
     bool skillDone = false;
     float xVel = (enemyPos.x - origPos.x)/(moveTime); //moving forward and back takes moveTime seconds
@@ -78,14 +79,17 @@ bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
         float slope = (enemyPos.y - getPosition().y) / (enemyPos.x - getPosition().x);
         velocity.x = xVel;
         velocity.y = slope * velocity.x;
+        printf("\nMoving to target\n");
     }else if(isAttack){ //char attack animation; stays in front of enemy
         moving = false;
         velocity.x = 0.0f;
         velocity.y = 0.0f;
+        printf("\nAttack Executing\n");
     }else if(getPosition().x > origPos.x){	//char is finished attacking; moving back to original position
         if(!skillExecuted){
             //Do whatever the skill does here
             skillExecuted = true;
+            printf("\nSkill executed\n");
             switch (skill.damageType) {
                 case 1:
                     target->health += skill.damage;
@@ -108,8 +112,13 @@ bool Character::updateAttack(float deltaTime, sf::Vector2f enemyPos, bool isAtta
 //        *battlePaused = true;   //complete battle animation
         if(*frameCounter >= attackTimer){
             *frameCounter -= attackTimer;
+        }else if(*frameCounter >= attackTimer/2){
+            *frameCounter -= attackTimer/2;
         }
         printf("\nBattle animation ended; reset\n");
+        printf("\nisAttacking: %i\n",isAttacking);
+        printf("\nframeCount: %f\n",*frameCounter);
+        printf("\nattackTimer: %f\n", attackTimer);
         skillDone = true;
     }
     moving = false;
